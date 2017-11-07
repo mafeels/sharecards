@@ -44,11 +44,15 @@ public class Principal {
 					
 					break;
 				case 2:
+					
+					boolean valida = false;
+					
+					do {
 					System.out.println("email: ");
 					email = in.nextLine();
 					System.out.println("senha: ");
 					senha = in.nextLine();
-					
+					}while(valida);
 					
 					
 					
