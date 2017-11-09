@@ -52,9 +52,19 @@ public class Principal {
 					email = in.nextLine();
 					System.out.println("senha: ");
 					senha = in.nextLine();
+					
+					valida = usuarioDao.validaLogin(email, senha);
+					
+					sessao1 = usuarioDao.retornaUsuario(email, senha);
+					
 					}while(valida);
 					
-					
+					do {
+						System.out.println("Opções");
+						System.out.println("1 - Mostrar Biblioteca de Flashcards");
+						System.out.println("2 - Mostrar Perfil");
+						
+					}while(valida);
 					
 					break;
 				default:
