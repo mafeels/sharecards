@@ -7,6 +7,9 @@ public class Usuario {
 	protected String codigoUsuario, username, dataNascimento, senha, email, primeiroNome, ultimoNome;
 	private SecureRandom random = new SecureRandom();
 	
+	public Usuario(){
+		
+	}
 	
 	public Usuario(String primeiroNome, String ultimoNome, String username, String dataNascimento, String senha, String email){
 		this.username = username;

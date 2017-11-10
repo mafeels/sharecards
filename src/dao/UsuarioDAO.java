@@ -58,5 +58,16 @@ public class UsuarioDAO {
 
 		return rs;
 	}
-
+	
+	public boolean validaLogin(String email, String senha){
+		///
+		return false;
+	}
+	
+	public Usuario retornaUsuario(String email, String senha){
+		
+		Usuario u = new Usuario();
+		
+		return u;
+	}
 }
