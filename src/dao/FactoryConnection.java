@@ -1,7 +1,10 @@
 package dao;
 
+import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.io.UnsupportedEncodingException;
+import java.security.*;
 
 /**
  * Essa classe retorna uma conexão com o banco de dados por meio da utlização do
@@ -28,6 +31,20 @@ public class FactoryConnection {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 		return conexao;
+	}
+	
+	public String criptografarSenha(String senha) throws NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
+			MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
+			byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
+			 
+			StringBuilder hexString = new StringBuilder();
+			for (byte b : messageDigest) {
+			  hexString.append(String.format("%02X", 0xFF & b));
+			}
+			
+			return hexString.toString();
 	}
 }
