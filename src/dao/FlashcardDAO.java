@@ -9,11 +9,7 @@ public class FlashcardDAO {
 	
 	public void insereFlashcard(Flashcard f) throws ClassNotFoundException, SQLException {
 		
-		Class.forName("com.mysql.jdbc.Driver");
-	       Connection conexao = (Connection) java.sql.DriverManager
-	                .getConnection("jdbc:mysql://localhost:3306/flashnotes"
-	                , "root"
-	                , "ifsp"  );
+		Connection conexao = new FactoryConnection().getConnection();
 	      
 	       // cria um preparedStatement
 	       String sql = "insert into flashcard (codigo_flashcard, codigo_usuario, nome_flashcard, frente_flashcard, verso_flashcard, autor_flashcard, categoria_flashcard, data_criacao, preco_flashcard, imagem_flashcard)"
@@ -39,11 +35,8 @@ public class FlashcardDAO {
 	       conexao.close();
 	}
 	public int removeFlashcard(String codigoFlashcard) throws ClassNotFoundException, SQLException {
-		   Class.forName("com.mysql.jdbc.Driver");
-	       Connection conexao = (Connection) java.sql.DriverManager
-	                .getConnection("jdbc:mysql://localhost:3306/flashnotes"
-	                , "root"
-	                , "ifsp"  ); 
+		   
+		Connection conexao = new FactoryConnection().getConnection();
 	       
 	       String sql = "DELETE FROM flashcard WHERE codigo_flashcard=?";  
 	       PreparedStatement pstmt = conexao.prepareStatement(sql);  
@@ -58,13 +51,11 @@ public class FlashcardDAO {
 	       return deleteCount;
 	}
 	public ResultSet consultaFlashcard(String codigoFlashcard) throws ClassNotFoundException, SQLException {
-	       Class.forName("com.mysql.jdbc.Driver");
-	       Connection conexao = (Connection) java.sql.DriverManager
-	                .getConnection("jdbc:mysql://localhost:3306/flashnotes"
-	                , "root"
-	                , "ifsp"  );
-	      
-	       Statement stmt= conexao.createStatement();
+		Connection conexao = new FactoryConnection().getConnection();
+		
+	       String sql = "select * from flashcard";
+	       
+	       Statement stmt = conexao.createStatement();
 	                       
 	       ResultSet rs = stmt.executeQuery("select * from flashcard");
 	        
