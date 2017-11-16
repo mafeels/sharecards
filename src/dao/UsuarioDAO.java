@@ -58,16 +58,25 @@ public class UsuarioDAO {
 
 		return rs;
 	}
-	
-	public boolean validaLogin(String email, String senha){
-		///
-		return false;
+
+	public boolean validaLogin(String email, String senha) throws SQLException {
+		Connection conexao = new FactoryConnection().getConnection();
+
+		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where senha = ?");
+		stmt.setString(1, senha);
+		ResultSet rs = stmt.executeQuery();
+		String countSenha = rs.getString(0);
+		if (countSenha == senha) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-	
-	public Usuario retornaUsuario(String email, String senha){
-		
+
+	public Usuario retornaUsuario(String email, String senha) {
+
 		Usuario u = new Usuario();
-		
+
 		return u;
 	}
 }
