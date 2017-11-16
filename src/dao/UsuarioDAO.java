@@ -55,7 +55,7 @@ public class UsuarioDAO {
 		Statement stmt = conexao.createStatement();
 
 		ResultSet rs = stmt.executeQuery("select * from usuario");
-
+		//meme
 		return rs;
 	}
 
