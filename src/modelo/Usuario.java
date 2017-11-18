@@ -15,13 +15,21 @@ public class Usuario {
 		
 	}
 	
-	public Usuario(String primeiroNome, String ultimoNome, String username, String dataNascimento, String senha, String email){
+	public Usuario(String primeiroNome, String ultimoNome, String username, String dataNascimento, String senha, String email) throws NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
 		this.username = username;
 		this.dataNascimento = dataNascimento;
 		this.senha = senha;
 		this.email = email;
 		this.primeiroNome = primeiroNome;
 		this.ultimoNome = ultimoNome;
+	}
+	
+	public Usuario(String primeiroNome, String ultimoNome, String username, String dataNascimento, String email) throws NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
+		this.username = username;
+		this.dataNascimento = dataNascimento;
+		this.primeiroNome = primeiroNome;
+		this.ultimoNome = ultimoNome;
+		this.email = email;
 	}
 	
 	public String getCodigoUsuario() {
@@ -98,7 +106,7 @@ public class Usuario {
 		this.ultimoNome = ultimoNome;
 	}
 	
-	public String criptografarSenha(String senha) throws NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
+	protected static String criptografarSenha(String senha) throws NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
 		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
 		byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
 		 

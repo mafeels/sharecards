@@ -1,5 +1,8 @@
 package dao;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.sql.*;
 import modelo.Usuario;
 
@@ -32,7 +35,7 @@ public class UsuarioDAO {
 		conexao.close();
 	}
 
-	public int removeUsuario(String codigoUsuario) throws ClassNotFoundException, SQLException {
+	public int removeUsuario(String codigoUsuario) throws ClassNotFoundException, SQLException{
 		Connection conexao = new FactoryConnection().getConnection();
 
 		String sql = "DELETE FROM usuario WHERE codigo_usuario=?";
@@ -62,8 +65,9 @@ public class UsuarioDAO {
 	public boolean validaLogin(String email, String senha) throws SQLException {
 		Connection conexao = new FactoryConnection().getConnection();
 
-		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where senha = ?");
+		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where (senha = '?') AND (e_mail = '?')");
 		stmt.setString(1, senha);
+		stmt.setString(2, email);
 		ResultSet rs = stmt.executeQuery();
 		String countSenha = rs.getString(0);
 		if (countSenha == senha) {
@@ -73,9 +77,17 @@ public class UsuarioDAO {
 		}
 	}
 
-	public Usuario retornaUsuario(String email, String senha) {
+	public Usuario retornaUsuario(String email, String senha) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
+		Connection conexao = new FactoryConnection().getConnection();
 
-		Usuario u = new Usuario();
+		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where (senha = '?') AND (e_mail = '?')");
+
+		stmt.setString(1, senha);
+		stmt.setString(2, email);
+		
+		ResultSet rs = stmt.executeQuery();
+		
+		Usuario u = new Usuario(rs.getNString("primeiro_nome"), rs.getNString("ultimo_nome"), rs.getNString("username"), rs.getNString("data_nascimento"), email);
 
 		return u;
 	}

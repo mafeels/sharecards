@@ -1,5 +1,8 @@
 package visao;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.sql.SQLException;
 import java.util.*;
 import modelo.*;
@@ -8,7 +11,7 @@ import dao.*;
 
 public class Principal {
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException {
 		Scanner in = new Scanner(System.in);
 		int entrada;
 		
