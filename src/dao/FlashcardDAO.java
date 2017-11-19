@@ -1,9 +1,9 @@
 package dao;
 
 import java.sql.*;
+import java.util.Scanner;
 
-
-import modelo.Flashcard;
+import modelo.*;
 
 public class FlashcardDAO {
 	
@@ -44,7 +44,7 @@ public class FlashcardDAO {
 	       pstmt.setString(1, codigoFlashcard);  
 	       int deleteCount = pstmt.executeUpdate(); 
 	       
-	       //System.out.println("Número de flashcards deletados: "+ deleteCount );  
+	       //System.out.println("Nï¿½mero de flashcards deletados: "+ deleteCount );  
 	      
 	       conexao.close();
 	       
@@ -62,11 +62,8 @@ public class FlashcardDAO {
 	       return rs;
 	}
 	public void editarFlashcard(String frente, String verso, String codigoFlashcard) throws ClassNotFoundException, SQLException{
-		Class.forName("com.mysql.jdbc.Driver");
-	       Connection conexao = (Connection) java.sql.DriverManager
-	                .getConnection("jdbc:mysql://localhost:3306/flashnotes"
-	                , "root"
-	                , "ifsp"  ); 
+		
+		Connection conexao = new FactoryConnection().getConnection();
 	       
 	       String sql = "UPDATE  flashcard  SET frente_flashcard= '?', verso_flashcard='?' WHERE codigoFlashcard='?';"; 
 	       
@@ -75,5 +72,34 @@ public class FlashcardDAO {
 	       stmt.setString(1, frente);
 	       stmt.setString(2, verso);
 	       stmt.setString(3, codigoFlashcard);
+	       
+	       stmt.execute();
+	       stmt.close();
+	       conexao.close();
 	}
+	public void mostrarBiblioteca(Usuario usuario) throws SQLException{
+		Connection conexao = new FactoryConnection().getConnection();
+		
+		String sql = "select * from flashcard where codigo_usuario = '?'";
+		
+		PreparedStatement stmt = conexao.prepareStatement(sql);
+		
+		stmt.setString(1, usuario.getCodigoUsuario());
+		
+		ResultSet rs = stmt.executeQuery();
+		
+		int i = 0;
+		
+		while(rs.next()) {
+			i++;
+			String nome = rs.getString("nome_flashcard");
+			System.out.println(i +" - "+nome);
+		}
+		
+		System.out.println("Escolha um Flashcard: ");
+		Scanner in = new Scanner("System.in");
+		int opcao = in.nextInt();
+		
+	}
+	
 }

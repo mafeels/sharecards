@@ -22,6 +22,7 @@ public class Principal {
 			
 			String primeiroNome, ultimoNome, username, email, senha, dataNascimento;
 			UsuarioDAO usuarioDao = new UsuarioDAO();
+			FlashcardDAO flashcardDAO = new FlashcardDAO();
 			
 			switch(entrada){
 				case 1:
@@ -63,15 +64,31 @@ public class Principal {
 					}while(valida);
 					
 					do {
-						System.out.println("Opções");
+						System.out.println("OpÃ§Ãµes");
 						System.out.println("1 - Mostrar Biblioteca de Flashcards");
-						System.out.println("2 - Mostrar Perfil");
+						System.out.println("2 - Criar Flashcard");
+						System.out.println("3 - Mostrar Perfil");
+						int opcao = in.nextInt();
+						
+						switch(opcao) {
+							case 1:
+								flashcardDAO.mostrarBiblioteca(sessao1);
+								
+								break;
+							case 2:
+								break;
+							case 3:
+								break;
+							default:
+								System.out.println("DIGITE UMA DAS OPÃ‡Ã•ES");
+						}
+						
 						
 					}while(valida);
 					
 					break;
 				default:
-					System.out.println("DIGITE UMA DAS OPÇÕES");
+					System.out.println("DIGITE UMA DAS OPÃ‡Ã•ES");
 			
 			}
 		}while(entrada != 2);
