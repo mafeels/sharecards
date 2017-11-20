@@ -84,6 +84,7 @@ public class Principal {
 								usuarioDao.mostrarPerfil(sessao1);
 								break;
 							case 4:
+								valida = true;
 								break;
 							default:
 								System.out.println("DIGITE UMA DAS OPÇÕES");
