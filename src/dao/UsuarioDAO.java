@@ -45,7 +45,7 @@ public class UsuarioDAO {
 		pstmt.setString(1, codigoUsuario);
 		int deleteCount = pstmt.executeUpdate();
 
-		// System.out.println("Número de flashcards deletados: "+ deleteCount );
+		// System.out.println("Nï¿½mero de flashcards deletados: "+ deleteCount );
 
 		conexao.close();
 
@@ -80,7 +80,7 @@ public class UsuarioDAO {
 	public Usuario retornaUsuario(String email, String senha) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
 		Connection conexao = new FactoryConnection().getConnection();
 
-		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where (senha = '?') AND (e_mail = '?')");
+		PreparedStatement stmt = conexao.prepareStatement("select * from usuario where (senha = '?') AND (e_mail = '?')");
 
 		stmt.setString(1, senha);
 		stmt.setString(2, email);
