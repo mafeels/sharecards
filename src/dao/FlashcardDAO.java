@@ -1,6 +1,12 @@
 package dao;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import modelo.*;
@@ -77,6 +83,25 @@ public class FlashcardDAO {
 	       stmt.close();
 	       conexao.close();
 	}
+	
+	public Flashcard retornaFlashcard(String email, String senha) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException, ParseException{
+		Connection conexao = new FactoryConnection().getConnection();
+
+		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where (senha = '?') AND (e_mail = '?')");
+
+		stmt.setString(1, senha);
+		stmt.setString(2, email);
+		
+		ResultSet rs = stmt.executeQuery();
+		
+		DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
+		Date date = (Date)formatter.parse(rs.getNString("data_criacao"));
+		
+		Flashcard flashcard = new Flashcard(rs.getNString("nome_flashcard"), rs.getNString("categoria_flashcard"), rs.getNString("frente_flashcard"), rs.getNString("verso_flashcard"), rs.getNString("codigo_usuario"), rs.getNString("autor_flashcard"), date, rs.getString("imagem_flashcard"));
+		
+		return flashcard;
+	}
+	
 	public void mostrarBiblioteca(Usuario usuario) throws SQLException{
 		Connection conexao = new FactoryConnection().getConnection();
 		
