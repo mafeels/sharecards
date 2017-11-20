@@ -6,11 +6,26 @@ import java.sql.Date;
 
 
 public class Flashcard {
+
 	protected String nomeFlashcard, categoriaFlashcard, frenteFlashcard, trasFlashcard, imageFlashcard, codigoFlashcard,
-			srcFlashcard, codigoUsuario, autorFlashcard;
+		 codigoUsuario, autorFlashcard;
 	protected double precoFlashcard;
 	private SecureRandom random = new SecureRandom();
 	Date dataCriacao;
+	
+	public Flashcard(String nomeFlashcard, String categoriaFlashcard, String frenteFlashcard, String trasFlashcard, String codigoUsuario,
+			String autorFlashcard, Date dataCriacao, String imageFlashcard, String codigoFlashcard) {
+		this.nomeFlashcard = nomeFlashcard;
+		this.categoriaFlashcard = categoriaFlashcard;
+		this.frenteFlashcard = frenteFlashcard;
+		this.trasFlashcard = trasFlashcard;
+		this.codigoFlashcard = codigoFlashcard;
+		this.codigoUsuario = codigoUsuario;
+		this.autorFlashcard = autorFlashcard;
+		this.precoFlashcard = 0;
+		this.dataCriacao = dataCriacao;
+		this.imageFlashcard = imageFlashcard;
+	}
 
 	public String getNomeFlashcard() {
 		return nomeFlashcard;
@@ -66,14 +81,6 @@ public class Flashcard {
 
 	public void setCodigoFlashcard(String codigoFlashcard) {
 		this.codigoFlashcard = codigoFlashcard;
-	}
-
-	public String getSrcFlashcard() {
-		return srcFlashcard;
-	}
-
-	public void setSrcFlashcard(String srcFlashcard) {
-		this.srcFlashcard = srcFlashcard;
 	}
 
 	public String getCodigoUsuario() {
