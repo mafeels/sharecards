@@ -63,6 +63,8 @@ public class Principal {
 					
 					}while(valida);
 					
+					valida = false;
+					
 					do {
 						System.out.println("Opções");
 						System.out.println("1 - Mostrar Biblioteca de Flashcards");
@@ -79,14 +81,14 @@ public class Principal {
 							case 2:
 								break;
 							case 3:
+								usuarioDao.mostrarPerfil(sessao1);
 								break;
 							case 4:
+								valida = true;
 								break;
 							default:
 								System.out.println("DIGITE UMA DAS OPÇÕES");
-						}
-						
-						
+						}					
 					}while(valida);
 					
 					break;

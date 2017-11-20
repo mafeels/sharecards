@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.sql.*;
+import java.util.Scanner;
+
 import modelo.Usuario;
 
 public class UsuarioDAO {
@@ -45,7 +47,7 @@ public class UsuarioDAO {
 		pstmt.setString(1, codigoUsuario);
 		int deleteCount = pstmt.executeUpdate();
 
-		// System.out.println("N�mero de flashcards deletados: "+ deleteCount );
+		// System.out.println("N�mero de flashcards deletados: "+ deleteCount );
 
 		conexao.close();
 
@@ -80,7 +82,7 @@ public class UsuarioDAO {
 	public Usuario retornaUsuario(String email, String senha) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
 		Connection conexao = new FactoryConnection().getConnection();
 
-		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where (senha = '?') AND (e_mail = '?')");
+		PreparedStatement stmt = conexao.prepareStatement("select * from usuario where (senha = '?') AND (e_mail = '?')");
 
 		stmt.setString(1, senha);
 		stmt.setString(2, email);
@@ -90,5 +92,82 @@ public class UsuarioDAO {
 		Usuario u = new Usuario(rs.getNString("primeiro_nome"), rs.getNString("ultimo_nome"), rs.getNString("username"), rs.getNString("data_nascimento"), email);
 
 		return u;
+	}
+	public void alteraSenha(String email, String senha) throws SQLException {
+		Connection conexao = new FactoryConnection().getConnection();
+
+		PreparedStatement stmt = conexao.prepareStatement("update usuario set senha = '?' where e_mail = '?'");
+
+		stmt.setString(1, senha);
+		stmt.setString(2, email);
+		
+		stmt.execute();
+		stmt.close();
+		conexao.close();
+	}
+	
+	public void mostrarPerfil(Usuario u) throws SQLException {	
+		Scanner in = new Scanner("System.in");
+		
+		System.out.println("Nome: "+ u.getPrimeiroNome() + " " + u.getUltimoNome());
+		System.out.println("username: " + u.getUsername());
+		System.out.println("Data de Nascimento: " + u.getDataNascimento());
+		System.out.println("Email: " + u.getEmail());
+		System.out.println("1 - Alterar senha");
+		System.out.println("2 - Sair");
+		System.out.println("Resp.: ");
+		int i = in.nextInt();
+		boolean valida = false;
+		
+		do{
+			switch(i) {
+				case 1:
+					valida = true;
+					break;
+				case 2:
+					
+					UsuarioDAO usuarioDao = new UsuarioDAO();
+					
+					System.out.println("Senha Atual: ");
+					String senhaAtual = in.nextLine();
+					System.out.println("Senha Nova: ");
+					String senhaNova = in.nextLine();
+					
+					boolean p = usuarioDao.validaLogin(u.getEmail(), senhaAtual);
+					
+					if(p){
+						usuarioDao.alteraSenha(u.getEmail(), senhaNova);
+						valida = true;
+					}else{
+						boolean valida1 = false;
+						
+						do{
+							System.out.println("Senha errada");
+							System.out.println("1 - Desistir");
+							System.out.println("2 - Tentar denovo");
+							int resp = in.nextInt();
+							
+							switch(resp) {
+								case 1:
+									valida = true;
+									valida1 = true;
+									break;
+								case 2:
+									valida = false;
+									valida1 = true;
+									break;
+								default:
+									System.out.println("DIGITE UMA DAS OPÇÕES");
+							}
+						}while(valida1);
+					}
+					
+					break;
+				default:
+					System.out.println("DIGITE UMA DAS OPÇÕES");
+			}
+		
+		}while(valida);
+		
 	}
 }
