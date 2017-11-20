@@ -84,13 +84,13 @@ public class FlashcardDAO {
 	       conexao.close();
 	}
 	
-	public Flashcard retornaFlashcard(String email, String senha) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException, ParseException{
+	public Flashcard retornaFlashcard(Usuario u, String codigoFlashcard) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException, ParseException{
 		Connection conexao = new FactoryConnection().getConnection();
 
-		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where (senha = '?') AND (e_mail = '?')");
+		PreparedStatement stmt = conexao.prepareStatement("select * from flashcard where (codigo_usuario = '?') AND (codigo_flashcard = '?')");
 
-		stmt.setString(1, senha);
-		stmt.setString(2, email);
+		stmt.setString(1, u.getCodigoUsuario());
+		stmt.setString(2, codigoFlashcard);
 		
 		ResultSet rs = stmt.executeQuery();
 		
