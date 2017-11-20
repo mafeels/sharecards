@@ -89,16 +89,29 @@ public class FlashcardDAO {
 		ResultSet rs = stmt.executeQuery();
 		
 		int i = 0;
+		String[] codigos = new String[100];
 		
 		while(rs.next()) {
 			i++;
 			String nome = rs.getString("nome_flashcard");
 			System.out.println(i +" - "+nome);
+			codigos[i] = rs.getString("codigo_flashcard");
 		}
+		
+		i++;
+		
+		System.out.println(i +" - Sair");
 		
 		System.out.println("Escolha um Flashcard: ");
 		Scanner in = new Scanner("System.in");
 		int opcao = in.nextInt();
+		
+		rs.first();
+		
+		if(opcao != i){
+			
+			
+		}
 		
 	}
 	

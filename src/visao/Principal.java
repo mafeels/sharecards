@@ -68,6 +68,7 @@ public class Principal {
 						System.out.println("1 - Mostrar Biblioteca de Flashcards");
 						System.out.println("2 - Criar Flashcard");
 						System.out.println("3 - Mostrar Perfil");
+						System.out.println("4 - Sair");
 						int opcao = in.nextInt();
 						
 						switch(opcao) {
@@ -78,6 +79,8 @@ public class Principal {
 							case 2:
 								break;
 							case 3:
+								break;
+							case 4:
 								break;
 							default:
 								System.out.println("DIGITE UMA DAS OPÇÕES");
