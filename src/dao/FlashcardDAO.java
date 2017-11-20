@@ -97,7 +97,7 @@ public class FlashcardDAO {
 		DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
 		Date date = (Date)formatter.parse(rs.getNString("data_criacao"));
 		
-		Flashcard flashcard = new Flashcard(rs.getNString("nome_flashcard"), rs.getNString("categoria_flashcard"), rs.getNString("frente_flashcard"), rs.getNString("verso_flashcard"), rs.getNString("codigo_usuario"), rs.getNString("autor_flashcard"), date, rs.getString("imagem_flashcard"));
+		Flashcard flashcard = new Flashcard(rs.getNString("nome_flashcard"), rs.getNString("categoria_flashcard"), rs.getNString("frente_flashcard"), rs.getNString("verso_flashcard"), rs.getNString("codigo_usuario"), rs.getNString("autor_flashcard"), date, rs.getString("imagem_flashcard"), codigoFlashcard);
 		
 		return flashcard;
 	}
