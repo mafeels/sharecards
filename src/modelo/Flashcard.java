@@ -26,6 +26,18 @@ public class Flashcard {
 		this.dataCriacao = dataCriacao;
 		this.imageFlashcard = imageFlashcard;
 	}
+	public Flashcard(String nomeFlashcard, String categoriaFlashcard, String frenteFlashcard, String trasFlashcard, String codigoUsuario,
+			String autorFlashcard, Date dataCriacao) {
+		this.nomeFlashcard = nomeFlashcard;
+		this.categoriaFlashcard = categoriaFlashcard;
+		this.frenteFlashcard = frenteFlashcard;
+		this.trasFlashcard = trasFlashcard;
+		this.codigoUsuario = codigoUsuario;
+		this.autorFlashcard = autorFlashcard;
+		this.precoFlashcard = 0;
+		this.dataCriacao = dataCriacao;
+
+	}
 
 	public String getNomeFlashcard() {
 		return nomeFlashcard;

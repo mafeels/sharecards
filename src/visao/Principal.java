@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.*;
 import modelo.*;
 import dao.*;
+import java.sql.Date;
 
 
 public class Principal {
@@ -78,6 +79,23 @@ public class Principal {
 								flashcardDAO.mostrarBiblioteca(sessao1);
 								break;
 							case 2:
+								System.out.println("Titulo: ");
+								String titulo = in.nextLine();
+								System.out.println("Frente: ");
+								String frente = in.nextLine();
+								System.out.println("Verso: ");
+								String verso = in.nextLine();
+								System.out.println("Categoria: ");
+								String categoria = in.nextLine();
+								
+								java.util.Date dataUtil = new java.util.Date();
+								java.sql.Date dataSql = new java.sql.Date(dataUtil.getTime());
+								
+								Flashcard flashcard = new Flashcard(titulo, categoria, frente, verso, sessao1.getCodigoUsuario(), sessao1.getUsername(), dataSql);
+								flashcard.generatorCodeFC();
+								
+								flashcardDAO.insereFlashcard(flashcard);
+								
 								break;
 							case 3:
 								usuarioDao.mostrarPerfil(sessao1);
