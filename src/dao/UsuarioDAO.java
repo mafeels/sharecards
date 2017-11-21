@@ -9,6 +9,13 @@ import java.util.Scanner;
 import modelo.Usuario;
 
 public class UsuarioDAO {
+	/**
+	 * Função para inserir usuario no banco
+	 * 
+	 * @param u
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 
 	public void insereUsuario(Usuario u) throws ClassNotFoundException, SQLException {
 
@@ -36,6 +43,14 @@ public class UsuarioDAO {
 		stmt.close();
 		conexao.close();
 	}
+	/**
+	 * Função para deletar usuario do banco de dados
+	 * 
+	 * @param codigoUsuario
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 
 	public int removeUsuario(String codigoUsuario) throws ClassNotFoundException, SQLException{
 		Connection conexao = new FactoryConnection().getConnection();
@@ -53,6 +68,14 @@ public class UsuarioDAO {
 
 		return deleteCount;
 	}
+	/**
+	 * Função para consultar usuario
+	 * 
+	 * @param codigoUsuario
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 
 	public ResultSet consultaUsuario(String codigoUsuario) throws ClassNotFoundException, SQLException {
 		Connection conexao = new FactoryConnection().getConnection();
@@ -63,6 +86,14 @@ public class UsuarioDAO {
 		//meme
 		return rs;
 	}
+	/**
+	 * Função para fazer login com base em email e senha
+	 * 
+	 * @param email
+	 * @param senha
+	 * @return
+	 * @throws SQLException
+	 */
 
 	public boolean validaLogin(String email, String senha) throws SQLException {
 		Connection conexao = new FactoryConnection().getConnection();
@@ -78,6 +109,18 @@ public class UsuarioDAO {
 			return false;
 		}
 	}
+	/**
+	 *  Função que retorna objeto do tipo usuario a partir de uma pesquisa no banco
+	 *  
+	 * @param email
+	 * @param senha
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 * @throws NoSuchAlgorithmException
+	 * @throws NoSuchProviderException
+	 * @throws UnsupportedEncodingException
+	 */
 
 	public Usuario retornaUsuario(String email, String senha) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
 		Connection conexao = new FactoryConnection().getConnection();
@@ -93,6 +136,13 @@ public class UsuarioDAO {
 
 		return u;
 	}
+	/**
+	 * Função para alterar senha do usuario no banco
+	 * 
+	 * @param email
+	 * @param senha
+	 * @throws SQLException
+	 */
 	public void alteraSenha(String email, String senha) throws SQLException {
 		Connection conexao = new FactoryConnection().getConnection();
 
@@ -105,7 +155,12 @@ public class UsuarioDAO {
 		stmt.close();
 		conexao.close();
 	}
-	
+	/**
+	 * Função void para mostrar perfil usuario e talvez trocar senha
+	 * 
+	 * @param u
+	 * @throws SQLException
+	 */
 	public void mostrarPerfil(Usuario u) throws SQLException {	
 		Scanner in = new Scanner("System.in");
 		

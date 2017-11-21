@@ -12,6 +12,13 @@ import java.util.Scanner;
 import modelo.*;
 
 public class FlashcardDAO {
+	/**
+	 * Função para inserir flashcard no banco
+	 * 
+	 * @param f
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	
 	public void insereFlashcard(Flashcard f) throws ClassNotFoundException, SQLException {
 		
@@ -40,6 +47,17 @@ public class FlashcardDAO {
 	       stmt.close();
 	       conexao.close();
 	}
+	
+	/**
+	 * Função para retirar flashcard do banco
+	 * 
+	 * 
+	 * @param codigoFlashcard
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	
 	public int removeFlashcard(String codigoFlashcard) throws ClassNotFoundException, SQLException {
 		   
 		Connection conexao = new FactoryConnection().getConnection();
@@ -56,6 +74,14 @@ public class FlashcardDAO {
 	       
 	       return deleteCount;
 	}
+	/**
+	 * Função para consultar flashcard em banco com base no codigo
+	 * 
+	 * @param codigoFlashcard
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public ResultSet consultaFlashcard(String codigoFlashcard) throws ClassNotFoundException, SQLException {
 		Connection conexao = new FactoryConnection().getConnection();
 		
@@ -67,6 +93,15 @@ public class FlashcardDAO {
 	        
 	       return rs;
 	}
+	/**
+	 * Função para editarFlashcard no banco de dados
+	 * 
+	 * @param frente
+	 * @param verso
+	 * @param codigoFlashcard
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void editarFlashcard(String frente, String verso, String codigoFlashcard) throws ClassNotFoundException, SQLException{
 		
 		Connection conexao = new FactoryConnection().getConnection();
@@ -83,7 +118,19 @@ public class FlashcardDAO {
 	       stmt.close();
 	       conexao.close();
 	}
-	
+	/**
+	 * Retorna objeto do tipo flashcard consultando no banco
+	 * 
+	 * @param u
+	 * @param codigoFlashcard
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 * @throws NoSuchAlgorithmException
+	 * @throws NoSuchProviderException
+	 * @throws UnsupportedEncodingException
+	 * @throws ParseException
+	 */
 	public Flashcard retornaFlashcard(Usuario u, String codigoFlashcard) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException, ParseException{
 		Connection conexao = new FactoryConnection().getConnection();
 
@@ -101,6 +148,12 @@ public class FlashcardDAO {
 		
 		return flashcard;
 	}
+	/**
+	 * Função para mostrar biblioteca de flashcards e usar-los
+	 * 
+	 * @param usuario
+	 * @throws SQLException
+	 */
 	
 	public void mostrarBiblioteca(Usuario usuario) throws SQLException{
 		Connection conexao = new FactoryConnection().getConnection();
