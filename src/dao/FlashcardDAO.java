@@ -134,8 +134,16 @@ public class FlashcardDAO {
 		rs.first();
 		
 		if(opcao != i){
-			
-			
+			int j = 0;
+			while(rs.next() && j<= opcao) {
+				j++;	
+			}
+			System.out.println("Frente: ");
+			System.out.println(rs.getNString("frente_flashcard"));
+			System.out.println("Mostrar verso: ");
+			in.nextLine();
+			System.out.println("Verso: ");
+			System.out.println(rs.getNString("verso_flashcard"));
 		}
 		
 	}

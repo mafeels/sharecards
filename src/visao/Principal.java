@@ -76,7 +76,6 @@ public class Principal {
 						switch(opcao) {
 							case 1:
 								flashcardDAO.mostrarBiblioteca(sessao1);
-								
 								break;
 							case 2:
 								break;
