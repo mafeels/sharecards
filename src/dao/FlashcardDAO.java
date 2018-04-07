@@ -39,7 +39,6 @@ public class FlashcardDAO {
 	       stmt.setString(6, f.getAutorFlashcard());
 	       stmt.setString(7, f.getCategoriaFlashcard());
 	       stmt.setString(8, f.getDataCriacao().toString());
-	       stmt.setDouble(9, f.getPrecoFlashcard());
 	       stmt.setString(10, f.getImageFlashcard());	       
 	       	      
 	       // executa
