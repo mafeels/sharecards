@@ -25,8 +25,8 @@ public class FlashcardDAO {
 		Connection conexao = new FactoryConnection().getConnection();
 	      
 	       // cria um preparedStatement
-	       String sql = "insert into flashcard (codigo_flashcard, codigo_usuario, nome_flashcard, frente_flashcard, verso_flashcard, autor_flashcard, categoria_flashcard, data_criacao, preco_flashcard, imagem_flashcard)"
-	       + "values (?,?,?,?,?,?,?,?,?,?)";
+	       String sql = "insert into flashcard (codigo_flashcard, codigo_usuario, nome_flashcard, frente_flashcard, verso_flashcard, autor_flashcard, categoria_flashcard, data_criacao, imagem_flashcard)"
+	       + "values (?,?,?,?,?,?,?,?,?)";
 	    
 		   PreparedStatement stmt = conexao.prepareStatement(sql);
 
@@ -39,7 +39,7 @@ public class FlashcardDAO {
 	       stmt.setString(6, f.getAutorFlashcard());
 	       stmt.setString(7, f.getCategoriaFlashcard());
 	       stmt.setString(8, f.getDataCriacao().toString());
-	       stmt.setString(10, f.getImageFlashcard());	       
+	       stmt.setString(9, f.getImageFlashcard());	       
 	       	      
 	       // executa
 	       stmt.execute();
