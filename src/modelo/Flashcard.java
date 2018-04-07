@@ -58,7 +58,6 @@ public class Flashcard {
 		this.trasFlashcard = trasFlashcard;
 		this.codigoUsuario = codigoUsuario;
 		this.autorFlashcard = autorFlashcard;
-		this.precoFlashcard = 0;
 		this.dataCriacao = dataCriacao;
 
 	}
