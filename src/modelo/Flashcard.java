@@ -9,8 +9,9 @@ public class Flashcard {
 
 	protected String nomeFlashcard, categoriaFlashcard, frenteFlashcard, trasFlashcard, imageFlashcard, codigoFlashcard,
 		 codigoUsuario, autorFlashcard;
-	protected double precoFlashcard;
 	private SecureRandom random = new SecureRandom();
+	
+	//coment
 	Date dataCriacao;
 	/**
 	 * Função construtora principal
@@ -35,7 +36,6 @@ public class Flashcard {
 		this.codigoFlashcard = codigoFlashcard;
 		this.codigoUsuario = codigoUsuario;
 		this.autorFlashcard = autorFlashcard;
-		this.precoFlashcard = 0;
 		this.dataCriacao = dataCriacao;
 		this.imageFlashcard = imageFlashcard;
 	}
@@ -151,23 +151,6 @@ public class Flashcard {
 	}
 	/**
 	 * Função para pegar preço do flashcard
-	 * 
-	 * @return
-	 */
-
-	public double getPrecoFlashcard() {
-		return precoFlashcard;
-	}
-	/**
-	 * Função para definir preço do Flashcard
-	 * 
-	 * @param precoFlashcard
-	 */
-	public void setPrecoFlashcard(double precoFlashcard) {
-		this.precoFlashcard = precoFlashcard;
-	}
-	/**
-	 * Função para pegar codigo do flashcard
 	 * 
 	 * @return
 	 */
