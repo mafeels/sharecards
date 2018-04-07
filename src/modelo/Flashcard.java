@@ -10,6 +10,8 @@ public class Flashcard {
 	protected String nomeFlashcard, categoriaFlashcard, frenteFlashcard, trasFlashcard, imageFlashcard, codigoFlashcard,
 		 codigoUsuario, autorFlashcard;
 	private SecureRandom random = new SecureRandom();
+	
+	//coment
 	Date dataCriacao;
 	/**
 	 * Função construtora principal
