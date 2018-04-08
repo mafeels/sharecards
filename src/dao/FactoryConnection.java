@@ -18,8 +18,8 @@ public class FactoryConnection {
 		Connection conexao = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conexao = (Connection) java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/adventuresLife",
-					"root", "");
+			conexao = (Connection) java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/flashnotes",
+					"root", "will");
 		}
 
 		catch (SQLException e) {

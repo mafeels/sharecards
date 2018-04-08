@@ -7,6 +7,7 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 import modelo.*;
@@ -25,21 +26,19 @@ public class FlashcardDAO {
 		Connection conexao = new FactoryConnection().getConnection();
 	      
 	       // cria um preparedStatement
-	       String sql = "insert into flashcard (codigo_flashcard, codigo_usuario, nome_flashcard, frente_flashcard, verso_flashcard, autor_flashcard, categoria_flashcard, data_criacao, imagem_flashcard)"
-	       + "values (?,?,?,?,?,?,?,?,?)";
+	       String sql = "insert into flashcard (nome_flashcard, frente_flashcard, verso_flashcard, autor_flashcard, categoria_flashcard, data_criacao, imagem_flashcard)"
+	       + "values (?, ?, ?, ?, ?, ?, ?)";
 	    
 		   PreparedStatement stmt = conexao.prepareStatement(sql);
 
 	       // preenche os valores
-	       stmt.setString(1, f.getCodigoFlashcard());
-	       stmt.setString(2, f.getCodigoUsuario());
-	       stmt.setString(3, f.getNomeFlashcard());
-	       stmt.setString(4, f.getFrenteFlashcard());
-	       stmt.setString(5, f.getTrasFlashcard());
-	       stmt.setString(6, f.getAutorFlashcard());
-	       stmt.setString(7, f.getCategoriaFlashcard());
-	       stmt.setString(8, f.getDataCriacao().toString());
-	       stmt.setString(9, f.getImageFlashcard());	       
+	       stmt.setString(1, f.getNomeFlashcard());
+	       stmt.setString(2, f.getFrenteFlashcard());
+	       stmt.setString(3, f.getTrasFlashcard());
+	       stmt.setString(4, f.getAutorFlashcard());
+	       stmt.setString(5, f.getCategoriaFlashcard());
+	       stmt.setString(6, f.getDataCriacao().toString());
+	       stmt.setString(7, f.getImageFlashcard());	       
 	       	      
 	       // executa
 	       stmt.execute();
@@ -47,6 +46,29 @@ public class FlashcardDAO {
 	       conexao.close();
 	}
 	
+	public void insereFlashcardSemIMG(Flashcard f) throws ClassNotFoundException, SQLException {
+		
+		Connection conexao = new FactoryConnection().getConnection();
+	      
+	       // cria um preparedStatement
+	       String sql = "insert into flashcard (nome_flashcard, frente_flashcard, verso_flashcard, autor_flashcard, categoria_flashcard, data_criacao)"
+	       + "values (?,?,?,?,?,?)";
+	    
+		   PreparedStatement stmt = conexao.prepareStatement(sql);
+
+	       // preenche os valores
+	       stmt.setString(1, f.getNomeFlashcard());
+	       stmt.setString(2, f.getFrenteFlashcard());
+	       stmt.setString(3, f.getTrasFlashcard());
+	       stmt.setString(4, f.getAutorFlashcard());
+	       stmt.setString(5, f.getCategoriaFlashcard());
+	       stmt.setString(6, f.getDataCriacao().toString());	       
+	       	      
+	       // executa
+	       stmt.execute();
+	       stmt.close();
+	       conexao.close();
+	}
 	/**
 	 * Função para retirar flashcard do banco
 	 * 
@@ -143,7 +165,7 @@ public class FlashcardDAO {
 		DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
 		Date date = (Date)formatter.parse(rs.getNString("data_criacao"));
 		
-		Flashcard flashcard = new Flashcard(rs.getNString("nome_flashcard"), rs.getNString("categoria_flashcard"), rs.getNString("frente_flashcard"), rs.getNString("verso_flashcard"), rs.getNString("codigo_usuario"), rs.getNString("autor_flashcard"), date, rs.getString("imagem_flashcard"), codigoFlashcard);
+		Flashcard flashcard = new Flashcard(rs.getNString("nome_flashcard"), rs.getNString("categoria_flashcard"), rs.getNString("frente_flashcard"), rs.getNString("verso_flashcard"), rs.getNString("codigo_usuario"), date);
 		
 		return flashcard;
 	}
