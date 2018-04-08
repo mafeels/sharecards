@@ -22,8 +22,8 @@ public class UsuarioDAO {
 		Connection conexao = new FactoryConnection().getConnection();
 
 		// cria um preparedStatement
-		String sql = "insert into usuario(primeiro_nome, ultimo_nome, username, data_nascimento, senha, e_mail)	"
-				+ "values (?, ?, ?, ?, ?, ?);";
+		String sql = "insert into usuario(primeiro nome, ultimo_nome, codigo_usuario, username, data_nascimento, senha, e_mail)	"
+				+ "values ('?','?',?','?','?','?','?');";
 
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 
@@ -32,10 +32,11 @@ public class UsuarioDAO {
 		// preenche os valores
 		stmt.setString(1, u.getPrimeiroNome());
 		stmt.setString(2, u.getUltimoNome());
-		stmt.setString(3, u.getUsername());
-		stmt.setString(4, u.getDataNascimento());
-		stmt.setString(5, u.getSenha());
-		stmt.setString(6, u.getEmail());
+		stmt.setString(3, u.getCodigoUsuario());
+		stmt.setString(4, u.getUsername());
+		stmt.setString(5, u.getDataNascimento());
+		stmt.setString(6, u.getSenha());
+		stmt.setString(7, u.getEmail());
 
 		// executa
 		stmt.execute();

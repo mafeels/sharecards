@@ -1,5 +1,7 @@
 package modelo;
 
+import java.security.SecureRandom;
+import java.math.BigInteger;
 import java.sql.Date;
 
 
@@ -7,6 +9,7 @@ public class Flashcard {
 
 	protected String nomeFlashcard, categoriaFlashcard, frenteFlashcard, trasFlashcard, imageFlashcard, codigoFlashcard,
 		 codigoUsuario, autorFlashcard;
+	private SecureRandom random = new SecureRandom();
 	
 	//coment
 	Date dataCriacao;
@@ -17,20 +20,21 @@ public class Flashcard {
 	 * @param categoriaFlashcard
 	 * @param frenteFlashcard
 	 * @param trasFlashcard
-
+	 * @param codigoUsuario
 	 * @param autorFlashcard
 	 * @param dataCriacao
 	 * @param imageFlashcard
-
+	 * @param codigoFlashcard
 	 */
-	public Flashcard(){}
 	
-	public Flashcard(String nomeFlashcard, String categoriaFlashcard, String frenteFlashcard, String trasFlashcard,
-			String autorFlashcard, Date dataCriacao, String imageFlashcard) {
+	public Flashcard(String nomeFlashcard, String categoriaFlashcard, String frenteFlashcard, String trasFlashcard, String codigoUsuario,
+			String autorFlashcard, Date dataCriacao, String imageFlashcard, String codigoFlashcard) {
 		this.nomeFlashcard = nomeFlashcard;
 		this.categoriaFlashcard = categoriaFlashcard;
 		this.frenteFlashcard = frenteFlashcard;
 		this.trasFlashcard = trasFlashcard;
+		this.codigoFlashcard = codigoFlashcard;
+		this.codigoUsuario = codigoUsuario;
 		this.autorFlashcard = autorFlashcard;
 		this.dataCriacao = dataCriacao;
 		this.imageFlashcard = imageFlashcard;
@@ -42,18 +46,19 @@ public class Flashcard {
 	 * @param categoriaFlashcard
 	 * @param frenteFlashcard
 	 * @param trasFlashcard
-
+	 * @param codigoUsuario
 	 * @param autorFlashcard
-	 * @param date
+	 * @param dataCriacao
 	 */
-	public Flashcard(String nomeFlashcard, String categoriaFlashcard, String frenteFlashcard, String trasFlashcard,
-			String autorFlashcard, Date date) {
+	public Flashcard(String nomeFlashcard, String categoriaFlashcard, String frenteFlashcard, String trasFlashcard, String codigoUsuario,
+			String autorFlashcard, Date dataCriacao) {
 		this.nomeFlashcard = nomeFlashcard;
 		this.categoriaFlashcard = categoriaFlashcard;
 		this.frenteFlashcard = frenteFlashcard;
 		this.trasFlashcard = trasFlashcard;
+		this.codigoUsuario = codigoUsuario;
 		this.autorFlashcard = autorFlashcard;
-		this.dataCriacao = date;
+		this.dataCriacao = dataCriacao;
 
 	}
 	/**
@@ -178,6 +183,13 @@ public class Flashcard {
 		this.codigoUsuario = codigoUsuario;
 	}
 	/**
+	 * Função para gerar codigo aleatorio do flashcard
+	 * 
+	 */
+	public void generatorCodeFC() {
+		codigoFlashcard = new BigInteger(130, random).toString(32);
+	}
+	/**
 	 * Função para editar nome do flashcard
 	 * 
 	 * @param novoNomeFlashcard
@@ -212,9 +224,10 @@ public class Flashcard {
 	}
 	/**
 	 * Função para definir data de criação
+	 * 
+	 * @param dataCriacao
 	 */
-	public void setDataCriacao(java.util.Date date) {
-		this.dataCriacao = (Date) date;
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
 	}
-
 }
