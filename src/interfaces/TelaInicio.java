@@ -48,7 +48,7 @@ public class TelaInicio extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblFlashnotes = new JLabel("FlashNotes");
+		JLabel lblFlashnotes = new JLabel("ShareCards");
 		lblFlashnotes.setFont(new Font("Times New Roman", Font.PLAIN, 27));
 		lblFlashnotes.setBounds(10, 11, 129, 32);
 		contentPane.add(lblFlashnotes);
