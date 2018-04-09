@@ -53,10 +53,6 @@ public class EntrarContaUI {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
-			Usuario usuario = new Usuario();
-			
-			usuario.
-			
 			
 		}}
 		);
