@@ -17,6 +17,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import dao.*;
@@ -41,7 +42,7 @@ public class EntrarContaUI {
 		labSenha.setText("Senha: ");
 
         JTextField textFieldUsername = new JTextField(10);
-        JTextField textFieldSenha = new JTextField(10);
+        JPasswordField textFieldSenha = new JPasswordField(10);
 		
 		labUsername.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         labSenha.setAlignmentX(JComponent.CENTER_ALIGNMENT);
