@@ -94,9 +94,6 @@ public class CadastroUsuarioUI {
 				
 				try {
 					usDAO.insereUsuario(us);
-					JLabel labSuc = new JLabel();
-					labSuc.setText("Usuário cadastrado com sucesso!");
-					panel.add(labSuc);
 				} catch (ClassNotFoundException | SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

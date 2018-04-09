@@ -8,6 +8,8 @@ create table usuario (
     data_nascimento date not null,
     senha varchar(12) not null,
     e_mail varchar(50) not null,
+	primeiro_nome varchar(20) not null,
+    ultimo_nome varchar(20) not null,
     primary key(codigo_usuario)) engine=innodb;
 
 create table flashcard (
@@ -42,8 +44,9 @@ from usuario;
 select *
 from flashcard;
 
-insert into usuario(username,data_nascimento,senha,e_mail)
-	values ("WillMasa2","2001/04/08","meme1","will.masa");
+
+insert into usuario(username,data_nascimento,senha,e_mail,primeiro_nome,ultimo_nome)
+	values ("WillMasa2","2001/04/08","meme1","will.masa","William","Yoshida");
 
 insert into flashcard(codigo_usuario, nome_flashcard, frente_flashcard, verso_flashcard, autor_flashcard, categoria_flashcard, data_criacao)
 	values (1,"Biologia","mitocondria","respiração","WillMasa","biologia","2017-07-31");
