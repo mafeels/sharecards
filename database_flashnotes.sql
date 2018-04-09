@@ -19,7 +19,6 @@ create table flashcard (
     autor_flashcard varchar(20) not null,
     categoria_flashcard varchar(25) not null,
     data_criacao datetime not null,
-    preco_flashcard int not null,
     imagem_flashcard varchar(100) null,
     primary key (codigo_flashcard),
     constraint fk_codigo_usuario foreign key(codigo_usuario)
@@ -34,17 +33,7 @@ create table edita (
     references flashcard (codigo_flashcard),
     constraint fk_codigo_usuario_edita foreign key(codigo_usuario)
     references flashcard (codigo_usuario)) engine=innodb;
-    
-
-create table compra (
-	data_compra datetime,
-    valor_total_compra int not null,
-    codigo_flashcard int not null,
-    codigo_usuario int not null,
-    constraint fk_codigo_flashcard_compra foreign key(codigo_flashcard)
-    references flashcard (codigo_flashcard),
-    constraint fk_codigo_usuario_compra foreign key(codigo_usuario)
-    references flashcard (codigo_usuario)) engine=innodb;
+   
 
 	
     
