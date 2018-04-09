@@ -20,11 +20,11 @@ public class PrincipalUI {
 		frame.setSize(800, 600);
 		frame.setLocationRelativeTo(null);		
 		JPanel panel = new JPanel ();
-		panel.setLayout(new GridLayout(3, 1));
+		panel.setLayout(new GridLayout(3, 3));
 		
-		JLabel lblFlashnotes = new JLabel("FlashNotes", SwingConstants.CENTER);
+		JLabel lblFlashnotes = new JLabel("ShareCards", SwingConstants.CENTER);
 		lblFlashnotes.setFont(new Font("Times New Roman", Font.PLAIN, 27));
-		lblFlashnotes.setBounds(10, 11, 129, 32);
+		lblFlashnotes.setBounds(10, 11, 10, 32);
 		panel.add(lblFlashnotes, BorderLayout.PAGE_START);
 		frame.setContentPane(panel);
 
@@ -41,7 +41,7 @@ public class PrincipalUI {
 		
 		panel.add(buttonUser);
 		
-		JButton buttonFlash = new JButton("Crie um Flashcard agora mesmo!!!");
+		JButton buttonFlash = new JButton("Entrar");
 		
 		buttonFlash.addActionListener(new ActionListener() {
 			

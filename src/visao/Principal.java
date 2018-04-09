@@ -91,8 +91,7 @@ public class Principal {
 								java.util.Date dataUtil = new java.util.Date();
 								java.sql.Date dataSql = new java.sql.Date(dataUtil.getTime());
 								
-								Flashcard flashcard = new Flashcard(titulo, categoria, frente, verso, sessao1.getCodigoUsuario(), sessao1.getUsername(), dataSql);
-								flashcard.generatorCodeFC();
+								Flashcard flashcard = new Flashcard(titulo, categoria, frente, verso, sessao1.getCodigoUsuario(), dataSql, "imagem");
 								
 								flashcardDAO.insereFlashcard(flashcard);
 								
