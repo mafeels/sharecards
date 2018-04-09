@@ -3,7 +3,9 @@ package interfacesLTPPANHAN;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -53,16 +55,42 @@ public class EntrarContaUI {
 		cadButton.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			UsuarioDAO login = new UsuarioDAO();
 			
+			try {
+				boolean valida = login.validaLogin(textFieldUsername.getText(), textFieldSenha.getText());
+				
+				if(valida) {
+					Usuario usuario = login.retornaUsuario(textFieldUsername.getText(), textFieldSenha.getText());
+					
+				}
+				
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (NoSuchAlgorithmException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (NoSuchProviderException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 		}}
 		);
+		cadButton.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         
         panel.add(labUsername);
 		panel.add(textFieldUsername);
 		panel.add(Box.createRigidArea(new Dimension(500,10)));
         panel.add(labSenha);
 		panel.add(textFieldSenha);
+		panel.add(cadButton);
 		
 		frameEntrar.setVisible(true);
 	}
