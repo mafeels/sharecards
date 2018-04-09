@@ -19,9 +19,8 @@ public class FactoryConnection {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conexao = (Connection) java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/flashnotes",
-					"root", "will");
+					"root", "ifsp");
 		}
-
 		catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

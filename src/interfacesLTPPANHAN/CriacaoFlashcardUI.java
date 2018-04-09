@@ -1,5 +1,6 @@
 package interfacesLTPPANHAN;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,6 +9,9 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,15 +30,18 @@ public class CriacaoFlashcardUI {
 		frameCrFlash.setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(20,20,10,20));
 		frameCrFlash.setContentPane(panel);
 		
 		JLabel labFlashNome = new JLabel();
 		labFlashNome.setText("Nome do Flashcard : ");
 		panel.add(labFlashNome);
+		
 
 		final JTextField textFieldFlashNome = new JTextField(30);
 		panel.add(textFieldFlashNome);
-		
+		panel.add(Box.createRigidArea(new Dimension(100,10)));
 		JLabel labCat = new JLabel();
 		labCat.setText("Categoria : ");
 		panel.add(labCat);
