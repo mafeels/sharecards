@@ -10,19 +10,24 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo.css" type="text/css">
-        <script src="js/flashnotes.js"></script>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+        
         <link href="https://fonts.googleapis.com/css?family=Roboto:300i" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="css/w3.css">
+         <link rel="stylesheet" href="css/w3.css">
+       <script src="js/flashnotes.js"></script>
     </head>
     <body>
-        <header>
-            <a id="Logo" href="#">FlashNotes</a>
-            <a id="Entrar" href="login.html">Entrar</a>   
+        <div class="header">
+        <header class="container">
+            <div class="row">
+            <a class="col-xs-12 col-sm-12 col-md-3 buttonHeader" href="#">FlashNotes</a>
+            <a class="col-xs-12 col-sm-12 col-md-3 col-md-offset-6 buttonHeader" href="login.html">Entrar</a> 
+            </div>
         </header>
+        </div>
         <div class="clearbox"></div>
         <div class="row">
-            <div class="column middle" style="background-color: rgba(0, 0, 0, 0.5); background-image: url('images/starry.jpg') ">
+            <div class="col-xs-12 col-md-8 column" style="background-color: rgba(0, 0, 0, 0.5); background-image: url('images/starry.jpg') ">
                 <div class="hook">
                     <h3 id="loremIpsum">Aprenda rápido!</h3>
                     <p id="textLoremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
@@ -30,7 +35,7 @@
                     </p>
                 </div>
             </div>
-            <div class="column side" style="background-color:#ccc;">
+            <div class="col-xs-12 col-md-4 column column" style="background-color:#ccc;">
                 <br><br><br>
                 <div class="forms">
                     <p id="regist"><i>Registre-se</i></p>
@@ -40,7 +45,7 @@
                         <label for="lname" style="color: black">Email</label>
                         <input type="text" id="lname" name="lastname" placeholder="Seu email principal.." class="inmaind">
                         <label for="lname" style="color: black">Senha</label>
-                        <input type="text" id="senha" name="senha" placeholder="Sua nova senha..." class="inmaind">
+                        <input type="text" id="senha" name="senha" placeholder="ae mendao" class="inmaind">
                         <br>
                         <p id="valid" class="message1"></p>
                         <input type="button" value="Registrar-se" class="inmain" onclick="blankLabels(document.getElementById('fname').value, document.getElementById('lname').value, document.getElementById('senha').value)">

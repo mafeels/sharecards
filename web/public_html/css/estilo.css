@@ -67,8 +67,6 @@ div.flashcards1 {
     background-color: #ecf0f1;
     padding: 10px 20px 20px 10px;
     margin: 10px 10px 10px 10px;
-    width: 95%;
-    height: 1000px;
 }
 
 div.flashcards2 {
@@ -99,7 +97,7 @@ body {
     max-width: 125%;
 }
 
-header {
+.header {
     background-color: #333;
     color: white;
     overflow: hidden;
@@ -207,11 +205,14 @@ div.container {
     font-size: 150%;
 
 }
-#Logo{
-    float:left;
+.buttonHeader{
     text-decoration: none;
     color:white;
 }
+.header{
+    background: #111111;
+}
+
 #Entrar{
     float:right;
     text-decoration: none;
@@ -503,4 +504,12 @@ div.perfil1{
 }
 #editPerf{
     float: right;
+}
+
+.login{
+    background-color: #dddddd;
+}
+
+.siteBackground{
+    background: url('images/giz.jpg') repeat;
 }

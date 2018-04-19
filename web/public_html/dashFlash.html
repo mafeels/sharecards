@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo.css" type="text/css">
-        <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script src="js/flashnotes.js"></script>
         <link rel="stylesheet" href="css/w3.css">
         <script src="js/jquery-3.2.1.js"></script>
@@ -22,14 +22,16 @@ and open the template in the editor.
             });
         </script>
     </head>
-    <body>
+    <body class="siteBackground">
 
-        <header>
-            <a id="Logo" href="dash.html">FlashNotes</a>
-            <a id="Sair" onclick="sair()">Sair</a>   
-            <a id="Entrar" href="index.html">Ir a Loja</a>
-        </header>
-
+        <div class="header">
+            <header class="container">
+                <div class="row">
+                <a class="col-xs-8 col-sm-8 col-md-3 buttonheader" href="index.html">FlashNotes</a>
+                <a class="col-xs-8  col-sm-8 col-md-3 col-md-offset-6 buttonHeader" onclick="sair()">Sair</a> 
+                </div>
+            </header>
+        </div>
         <aside>
             <ul class="sidenav">
                 <li>
@@ -68,7 +70,7 @@ and open the template in the editor.
             <br>
             <div class="col-md-2">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                         <div class="input-group form">
                             <input type="text" class="form-control" placeholder="Pesquise...">
                             <span class="input-group-btn">
@@ -78,11 +80,8 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary btn-lg btn-warning" type="button" onclick="window.location.href = 'biblioteca.html'">Biblioteca de flashcards</button>
-            <button class="btn btn-primary btn-lg" type="button" onclick="window.location.href = 'dash.html'">Retornar ao Dashboard</button>
-            <br>
-            <br>
-            <hr>
+            <button class="btn btn-primary btn-md btn-warning" type="button" onclick="window.location.href = 'biblioteca.html'">Biblioteca de flashcards</button>
+            <button class="btn btn-primary btn-md" type="button" onclick="window.location.href = 'dash.html'">Retornar ao Dashboard</button>
             <div class="flashcards2">
                 <input type="button" value="Revelar" class="inmainRev btn-success" onclick="document.querySelector('.flip-container').classList.toggle('hover');">
                 <div class="flip-container noHover" ontouchstart="this.classList.toggle('hover');">
@@ -94,6 +93,7 @@ and open the template in the editor.
                                         <legend>Frente</legend>
                                         <textarea name="Verso" rows="4" cols="20">O que o Felipe Michelin está fazendo agora?</textarea>
                                     </div>
+                                </fieldset>
                             </form>
                         </div>
                         <div class="back">
@@ -103,6 +103,7 @@ and open the template in the editor.
                                         <legend>Verso</legend>
                                         <textarea name="Verso" rows="4" cols="20">Nada.</textarea>
                                     </div>
+                                </fieldset>
                             </form>
                         </div>
                     </div>
