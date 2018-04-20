@@ -20,14 +20,22 @@
             </header>
         </div>
         <br><br><br><br><br><br>
-        <div class="perfil1">
+        <div class="col-xs-12 perfil1">
             <br>
-            <button class="btn btn-primary btn-lg fieldright" type="button" onclick="window.location.href = 'dash.html'">Retornar ao Dashboard</button>
-            <h2 id="dash"><i>Perfil</i></h2>
+            <div class="col-xs-4 col-sm-6 col-md-6 col-lg-6">
+                <h2 id="dash"><i>Perfil</i></h2>
+            </div>
+            <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6">
+                <button class="btn btn-primary btn-lg fieldright" type="button" onclick="window.location.href = 'dash.html'">Retornar ard</button>
+            </div>
+            <br>
             <br>
             <div class="linha"></div>
-            <img src="images/edi_perfil.PNG" class="img-circle" alt="Imagem do usuário" >
-            <div id="editPerf">
+            <br>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" >
+                <img src="images/edi_perfil.PNG" class="img-circle" alt="Imagem do usuário" >
+            </div>
+            <div id="editPerf" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <h4><strong>Edilsinho Ferreira</strong></h4>
                 <form action="envia_foto.php" method="post"> 
                     <input type="file" name="Arquivo" id="Arquivo">
@@ -73,6 +81,7 @@
                         </div>
                     </div>
                 </form>
+            
             </div>
         </div> 
     </body>
