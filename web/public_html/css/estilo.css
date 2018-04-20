@@ -7,7 +7,7 @@ and open the template in the editor.
     Created on : 21/06/2017, 02:49:23
     Author     : WIN7PRO
 */
-ul.topnav {
+.topnav {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -17,9 +17,9 @@ ul.topnav {
 
 }
 
-ul.topnav li {float: left;}
+.topnav li {float: left;}
 
-ul.topnav li a {
+.topnav li a {
     display: block;
     color: white;
     text-align: center;
@@ -27,30 +27,27 @@ ul.topnav li a {
     text-decoration: none;
 
 }
-ul.topnav li a:hover:not(.active) {background-color: #3498db;}
+.topnav li a:hover:not(.active) {background-color: #3498db;}
 
-ul.topnav li a.active {background-color: #4CAF50;}
+.topnav li a.active {background-color: #4CAF50;}
 
-ul.topnav li.right {float: right;}
+.topnav li.right {float: right;}
 
-ul.sidenav {
-    list-style-type: none;
-    margin: 0;
+.sidenav {
+    margin: 10px;
     padding: 15px 15px;
-    width: 22%;
-    background-color: #ecf0f1;
-    height: 100%; 
-    position: absolute; 
+    background-color: #ecf0f1; 
     overflow: auto; 
     text-decoration: none;
+    float: left;
 }
 
-ul.sidenav li div.sidedet{
+.sidenav li div.sidedet{
     float: right;
     padding: 5px 5px 5px 5px;
 
 }
-ul.sidenav li.categoria {
+.sidenav li.categoria {
     padding: 5px 15px;
     list-style-type: none;
     margin: 2px;
