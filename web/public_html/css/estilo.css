@@ -1,12 +1,46 @@
 /*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Autor: Matheus Alves e William Yoshida
 */
-/* 
-    Created on : 21/06/2017, 02:49:23
-    Author     : WIN7PRO
+
+
+
+/*
+Body padrão para todas as páginas do projeto.
 */
+body {
+  background: #f1f4f7;
+  padding-top: 60px;
+  font-size: 14px;
+  color: #444444;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*
+Sidebar-wrapper, feito para colocar toda a sidebar.
+*/
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background-color: #222222;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+
+
+/*
+Então, é o seguinte, tudo em baixo desse comentário é codigo velho, feito usando más praticas, e de dificil leitura, a parte de cima é a parte
+que tentaremos usar boas práticas e comentários para aumentar a produtividade.
+*/
+
 .topnav {
     list-style-type: none;
     margin: 0;
@@ -88,11 +122,7 @@ div.flashcards2 {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    max-height: 125%;
-    max-width: 125%;
-}
+
 
 .header {
     background-color: #333;
@@ -493,10 +523,7 @@ input::placeholder {
     background-color: #2980b9;
 }
 div.perfil1{
-    margin: 0 auto;
     background-color: #ecf0f1;
-    padding: 10px 20px 20px 10px;
-    height: 50%;
 }
 #editPerf{
     float: right;
