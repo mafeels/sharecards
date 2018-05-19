@@ -9,31 +9,126 @@ Body padrão para todas as páginas do projeto.
 */
 body {
   background: #f1f4f7;
-  padding-top: 60px;
   font-size: 14px;
   color: #444444;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Tamanho da imagem do perfil*/
+#img-perfil{
+    max-height: 150px;
+    max-width: 150px;
 }
 
 /*
-Sidebar-wrapper, feito para colocar toda a sidebar.
+Templates, todos os css que foram copiados de outras fontes
 */
+
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+*/
+
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  padding: 0px;
+  margin: 0px;
+}
+
+#wrapper.toggled {
+  padding-left: 250px;
+}
 
 #sidebar-wrapper {
   z-index: 1000;
   position: fixed;
   left: 250px;
-  width: 0;
+  width: 0px;
   height: 100%;
   margin-left: -250px;
   overflow-y: auto;
-  background-color: #222222;
+  background: #DDDDDD;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px;
+}
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: -250px;
+}
+
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+  position: absolute;
+  /*top: 0;*/
+  width: 250px;
+  margin: 0;
+  padding: 15px;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+}
+
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 0;
+  }
+  #wrapper.toggled {
+    padding-left: 250px;
+  }
+  #sidebar-wrapper {
+    width: 0;
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+  }
+  #page-content-wrapper {
+    padding: 20px;
+    padding-top: 0px;
+    position: relative;
+  }
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
+  }
+}
 
 
 /*
@@ -231,13 +326,6 @@ div.container {
     display: block;
     font-size: 150%;
 
-}
-.buttonHeader{
-    text-decoration: none;
-    color:white;
-}
-.header{
-    background: #111111;
 }
 
 #Entrar{
