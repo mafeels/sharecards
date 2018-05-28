@@ -1,4 +1,4 @@
-package modelo;
+package sharecards.model;
 
 
 public class Edita {

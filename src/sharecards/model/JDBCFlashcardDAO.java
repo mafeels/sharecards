@@ -1,4 +1,4 @@
-package dao;
+package sharecards.model;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -10,9 +10,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-import modelo.*;
+import sharecards.model.*;
 
-public class FlashcardDAO {
+public class JDBCFlashcardDAO implements FlashcardDAO{
 	/**
 	 * Função para inserir flashcard no banco
 	 * 

@@ -5,8 +5,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.sql.SQLException;
 import java.util.*;
-import modelo.*;
-import dao.*;
+
+import sharecards.model.*;
+
 import java.sql.Date;
 
 
@@ -22,8 +23,8 @@ public class Principal {
 			entrada = in.nextInt();
 			
 			String primeiroNome, ultimoNome, username, email, senha, dataNascimento;
-			UsuarioDAO usuarioDao = new UsuarioDAO();
-			FlashcardDAO flashcardDAO = new FlashcardDAO();
+			JDBCUsuarioDAO usuarioDao = new JDBCUsuarioDAO();
+			JDBCFlashcardDAO flashcardDAO = new JDBCFlashcardDAO();
 			
 			switch(entrada){
 				case 1:

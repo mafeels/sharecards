@@ -1,4 +1,4 @@
-package interfacesLTPPANHAN;
+package sharecards.intfc;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -18,8 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import dao.FlashcardDAO;
-import modelo.Flashcard;
+import sharecards.model.Flashcard;
+import sharecards.model.JDBCFlashcardDAO;
 
 public class CriacaoFlashcardUI {
 	
@@ -83,7 +83,7 @@ public class CriacaoFlashcardUI {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
-			FlashcardDAO fcDAO = new FlashcardDAO();
+			JDBCFlashcardDAO fcDAO = new JDBCFlashcardDAO();
 			
 			Flashcard fc = new Flashcard();
 			fc.setNomeFlashcard(textFieldFlashNome.getText());
