@@ -1,4 +1,4 @@
-package interfacesLTPPANHAN;
+package sharecards.intfc;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -15,8 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import dao.UsuarioDAO;
-import modelo.Usuario;
+import sharecards.model.Usuario;
+import sharecards.model.JDBCUsuarioDAO;
 
 public class CadastroUsuarioUI {
 
@@ -82,7 +82,7 @@ public class CadastroUsuarioUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				UsuarioDAO usDAO = new UsuarioDAO();
+				JDBCUsuarioDAO usDAO = new JDBCUsuarioDAO();
 				
 				Usuario us = new Usuario();
 				us.setUsername(textFieldUsername.getText());
@@ -94,6 +94,9 @@ public class CadastroUsuarioUI {
 				
 				try {
 					usDAO.insereUsuario(us);
+					JLabel labSuc = new JLabel();
+					labSuc.setText("Usuário cadastrado com sucesso!");
+					panel.add(labSuc);
 				} catch (ClassNotFoundException | SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

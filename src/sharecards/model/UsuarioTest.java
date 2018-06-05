@@ -1,4 +1,4 @@
-package modelo;
+package sharecards.model;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;

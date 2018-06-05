@@ -1,4 +1,4 @@
-package dao;
+package sharecards.model;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -6,9 +6,7 @@ import java.security.NoSuchProviderException;
 import java.sql.*;
 import java.util.Scanner;
 
-import modelo.Usuario;
-
-public class UsuarioDAO {
+public class JDBCUsuarioDAO implements UsuarioDAO {
 	/**
 	 * Função para inserir usuario no banco
 	 * 
@@ -180,7 +178,7 @@ public class UsuarioDAO {
 					break;
 				case 2:
 					
-					UsuarioDAO usuarioDao = new UsuarioDAO();
+					JDBCUsuarioDAO usuarioDao = new JDBCUsuarioDAO();
 					
 					System.out.println("Senha Atual: ");
 					String senhaAtual = in.nextLine();

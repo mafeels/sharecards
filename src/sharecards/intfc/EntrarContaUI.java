@@ -1,4 +1,4 @@
-package interfacesLTPPANHAN;
+package sharecards.intfc;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -22,8 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import dao.*;
-import modelo.*;
+import sharecards.model.*;
 
 public class EntrarContaUI {
 	
@@ -55,7 +54,7 @@ public class EntrarContaUI {
 		cadButton.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			UsuarioDAO login = new UsuarioDAO();
+			JDBCUsuarioDAO login = new JDBCUsuarioDAO();
 			
 			try {
 				boolean valida = login.validaLogin(textFieldUsername.getText(), textFieldSenha.getText());
