@@ -18,8 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import sharecards.dao.JDBCFlashcardDAO;
 import sharecards.model.Flashcard;
-import sharecards.model.JDBCFlashcardDAO;
 
 public class CriacaoFlashcardUI {
 	

@@ -1,4 +1,4 @@
-package sharecards.model;
+package sharecards.dao;
 
 
 import java.sql.Connection;

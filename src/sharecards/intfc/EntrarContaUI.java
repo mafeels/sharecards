@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import sharecards.dao.JDBCUsuarioDAO;
 import sharecards.model.*;
 
 public class EntrarContaUI {

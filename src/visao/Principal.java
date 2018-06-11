@@ -6,6 +6,8 @@ import java.security.NoSuchProviderException;
 import java.sql.SQLException;
 import java.util.*;
 
+import sharecards.dao.JDBCFlashcardDAO;
+import sharecards.dao.JDBCUsuarioDAO;
 import sharecards.model.*;
 
 import java.sql.Date;

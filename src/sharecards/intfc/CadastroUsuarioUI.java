@@ -15,8 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import sharecards.dao.JDBCUsuarioDAO;
 import sharecards.model.Usuario;
-import sharecards.model.JDBCUsuarioDAO;
 
 public class CadastroUsuarioUI {
 

@@ -1,10 +1,12 @@
-package sharecards.model;
+package sharecards.dao;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import sharecards.model.Usuario;
 
 public interface UsuarioDAO {
 
