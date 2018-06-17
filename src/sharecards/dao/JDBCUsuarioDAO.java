@@ -17,7 +17,7 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 	 * @throws SQLException
 	 */
 
-	public void insereUsuario(Usuario u) throws ClassNotFoundException, SQLException {
+	public String insereUsuario(Usuario u) throws ClassNotFoundException, SQLException {
 
 		Connection conexao = new FactoryConnection().getConnection();
 
@@ -27,7 +27,7 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 
-		u.generatorCodeUS();
+		//u.generatorCodeUS();
 
 		// preenche os valores
 		stmt.setString(1, u.getPrimeiroNome());
@@ -40,7 +40,16 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 		// executa
 		stmt.execute();
 		stmt.close();
+		
+		PreparedStatement pstmt = conexao.prepareStatement("select codigo_usuario FROM usuario WHERE (senha = '?') AND (e_mail = '?')");
+		pstmt.setString(1, u.getSenha());
+		pstmt.setString(2, u.getEmail());
+		ResultSet rs = stmt.executeQuery();
+		String cod = rs.getNString("codigo_usuario");
 		conexao.close();
+		
+		return cod; 
+		
 	}
 	/**
 	 * Função para deletar usuario do banco de dados
@@ -160,7 +169,7 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 	 * @param u
 	 * @throws SQLException
 	 */
-	public void mostrarPerfil(Usuario u) throws SQLException {	
+	/*public void mostrarPerfil(Usuario u) throws SQLException {	
 		Scanner in = new Scanner("System.in");
 		
 		System.out.println("Nome: "+ u.getPrimeiroNome() + " " + u.getUltimoNome());
@@ -223,5 +232,20 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 		
 		}while(valida);
 		
+	}*/
+	public String retornaCodigoUsuario(String email, String senha) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
+		Connection conexao = new FactoryConnection().getConnection();
+
+		PreparedStatement stmt = conexao.prepareStatement("select codigo_usuario from usuario where (senha = '?') AND (e_mail = '?')");
+
+		stmt.setString(1, senha);
+		stmt.setString(2, email);
+		
+		ResultSet rs = stmt.executeQuery();
+		
+		String cod = rs.getNString("codigo_usuario");
+
+		return cod;
 	}
+	
 }

@@ -10,7 +10,7 @@ import sharecards.model.Usuario;
 
 public interface UsuarioDAO {
 
-		public void insereUsuario(Usuario u) throws ClassNotFoundException, SQLException;
+		public String insereUsuario(Usuario u) throws ClassNotFoundException, SQLException;
 		
 		public int removeUsuario(String codigoUsuario) throws ClassNotFoundException, SQLException;
 		
@@ -22,5 +22,7 @@ public interface UsuarioDAO {
 		
 		public void alteraSenha(String email, String senha) throws SQLException;
 		
-		public void mostrarPerfil(Usuario u) throws SQLException;
+		//public void mostrarPerfil(Usuario u) throws SQLException;
+		
+		public String retornaCodigoUsuario(String email, String senha) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException;
 }
