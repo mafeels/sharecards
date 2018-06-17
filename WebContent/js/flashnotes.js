@@ -6,7 +6,7 @@ function blankPassword(email, senha){
         
         
 	}else{
-		window.location="dash.html";
+		window.location="dash.xhtml";
 	}
 }
 
@@ -33,7 +33,7 @@ function blankLabels(nome, lnome, senha){
 	if(nome === ""|| lnome ==="" || senha === ""){
 		document.getElementById("valid").innerHTML = "";
 	}else{
-		window.location="dash.html";
+		window.location="dash.xhtml";
 	}
 }
 
@@ -54,6 +54,6 @@ function carousel() {
 function sair(){
     var conf = confirm("Você deseja mesmo sair da sessão?");
     if (conf === true) {
-        window.open("index.html","_self");
+        window.open("index.xhtml","_self");
     }
 }
