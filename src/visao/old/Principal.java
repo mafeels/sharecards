@@ -12,7 +12,7 @@ import sharecards.model.*;
 
 import java.sql.Date;
 
-
+/*
 public class Principal {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException {
@@ -119,3 +119,4 @@ public class Principal {
 
 	}
 }
+*/
