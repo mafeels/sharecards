@@ -123,7 +123,7 @@ public class JDBCFlashcardDAO implements FlashcardDAO{
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public void editarFlashcard(String frente, String verso, String codigoFlashcard) throws ClassNotFoundException, SQLException{
+	public void editarFlashcard(String frenteFlashcard, String trasFlashcard, String codigoFlashcard) throws ClassNotFoundException, SQLException{
 		
 		Connection conexao = new FactoryConnection().getConnection();
 	       
@@ -131,8 +131,8 @@ public class JDBCFlashcardDAO implements FlashcardDAO{
 	       
 	       PreparedStatement stmt = conexao.prepareStatement(sql); 
 	       
-	       stmt.setString(1, frente);
-	       stmt.setString(2, verso);
+	       stmt.setString(1, frenteFlashcard);
+	       stmt.setString(2, trasFlashcard);
 	       stmt.setString(3, codigoFlashcard);
 	       
 	       stmt.execute();
@@ -152,12 +152,12 @@ public class JDBCFlashcardDAO implements FlashcardDAO{
 	 * @throws UnsupportedEncodingException
 	 * @throws ParseException
 	 */
-	public Flashcard retornaFlashcard(Usuario u, String codigoFlashcard) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException, ParseException{
+	public Flashcard retornaFlashcard(String codigoUsuario, String codigoFlashcard) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException, ParseException{
 		Connection conexao = new FactoryConnection().getConnection();
 
 		PreparedStatement stmt = conexao.prepareStatement("select * from flashcard where (codigo_usuario = '?') AND (codigo_flashcard = '?')");
 
-		stmt.setString(1, u.getCodigoUsuario());
+		stmt.setString(1, codigoUsuario());
 		stmt.setString(2, codigoFlashcard);
 		
 		ResultSet rs = stmt.executeQuery();

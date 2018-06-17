@@ -22,7 +22,7 @@ public interface FlashcardDAO {
 	
 	public void editarFlashcard(String frente, String verso, String codigoFlashcard) throws ClassNotFoundException, SQLException;
 	
-	public Flashcard retornaFlashcard(Usuario u, String codigoFlashcard) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException, ParseException;
+	public Flashcard retornaFlashcard(String codigoUsuario, String codigoFlashcard) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException, ParseException;
 	
 	public void mostrarBiblioteca(Usuario usuario) throws SQLException;
 	

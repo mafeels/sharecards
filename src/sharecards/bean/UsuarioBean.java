@@ -6,17 +6,19 @@ import java.security.NoSuchProviderException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.faces.bean.ManagedBean;
+
 import sharecards.dao.JDBCUsuarioDAO;
 import sharecards.dao.UsuarioDAO;
 import sharecards.model.Usuario;
 
+@ManagedBean
 public class UsuarioBean {
 
 	private String codigoUsuario, username, dataNascimento, senha, email, primeiroNome, ultimoNome;
 	
-	public void insereUsuario(Usuario u) throws ClassNotFoundException, SQLException{
+	public void insereUsuario() throws ClassNotFoundException, SQLException{
 		Usuario us = new Usuario();
-		us.setCodigoUsuario(codigoUsuario);
 		us.setUsername(username);
 		us.setEmail(email);
 		us.setDataNascimento(dataNascimento);
@@ -25,41 +27,102 @@ public class UsuarioBean {
 		us.setUltimoNome(ultimoNome);
 		
 		UsuarioDAO edUs = new JDBCUsuarioDAO();
-		edUs.insereUsuario(us);
+		this.codigoUsuario = edUs.insereUsuario(us);
 	} 
 	
-	public int removeUsuario(String codigoUsuario) throws ClassNotFoundException, SQLException{
+	public int removeUsuario() throws ClassNotFoundException, SQLException{
 		UsuarioDAO edUs = new JDBCUsuarioDAO();
 		int deletCount = edUs.removeUsuario(codigoUsuario);
         return deletCount;
 	}
 
-	public ResultSet consultaUsuario(String codigoUsuario) throws ClassNotFoundException, SQLException{
+	public ResultSet consultaUsuario() throws ClassNotFoundException, SQLException{
 		UsuarioDAO edUs = new JDBCUsuarioDAO();
 		ResultSet rs = edUs.consultaUsuario(codigoUsuario);
 		return rs;
 	}
 	
-	public boolean validaLogin(String email, String senha) throws SQLException{
+	public boolean validaLogin() throws SQLException{
 		UsuarioDAO edUs = new JDBCUsuarioDAO();
 		boolean confirm = edUs.validaLogin(email, senha);
 		return confirm;
 	}
 
-	public Usuario retornaUsuario(String email, String senha) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
+	public Usuario retornaUsuario() throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
 		UsuarioDAO edUs = new JDBCUsuarioDAO();
 		Usuario rUser = edUs.retornaUsuario(email, senha);
 		return rUser;
 	}
 	
-	public void alteraSenha(String email, String senha) throws SQLException{
+	public void alteraSenha() throws SQLException{
 		UsuarioDAO edUs = new JDBCUsuarioDAO();
 		edUs.alteraSenha(email, senha);
 	}
 
-	public void mostrarPerfil(Usuario u) throws SQLException{
+	public String retornaCodigoUsuario() throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
 		UsuarioDAO edUs = new JDBCUsuarioDAO();
-		edUs.mostrarPerfil(u);
+		return edUs.retornaCodigoUsuario(email, senha);
+	} 
+	
+	public String getCodigoUsuario() {
+		return codigoUsuario;
 	}
 
+	public void setCodigoUsuario(String codigoUsuario) {
+		this.codigoUsuario = codigoUsuario;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPrimeiroNome() {
+		return primeiroNome;
+	}
+
+	public void setPrimeiroNome(String primeiroNome) {
+		this.primeiroNome = primeiroNome;
+	}
+
+	public String getUltimoNome() {
+		return ultimoNome;
+	}
+
+	public void setUltimoNome(String ultimoNome) {
+		this.ultimoNome = ultimoNome;
+	}
+
+	// Método para ser analisado posteriormente
+	/*public void mostrarPerfil() throws SQLException{
+		UsuarioDAO edUs = new JDBCUsuarioDAO();
+		edUs.mostrarPerfil();
+	}*/
 }

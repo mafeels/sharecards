@@ -10,3 +10,8 @@ $(function(){
     });
 })    
     
+$(document).ready(function () {
+                $("#TutTog").click(function () {
+                    $("#TutContent").fadeToggle();
+                });
+            });    

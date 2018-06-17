@@ -1,16 +1,16 @@
 package sharecards.model;
 
 import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-import java.security.MessageDigest;
+//import java.math.BigInteger;
+//import java.security.MessageDigest;
+//import java.security.SecureRandom;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
-import java.security.SecureRandom;
+
 
 
 public class Usuario {
 	protected String codigoUsuario, username, dataNascimento, senha, email, primeiroNome, ultimoNome;
-	private SecureRandom random = new SecureRandom();
 	/**
 	 * Construtor vazio
 	 */
@@ -140,32 +140,34 @@ public class Usuario {
 	 * Função para definir codigo de usuario
 	 * 
 	 */
+	/*
 	public void generatorCodeUS() {
 		codigoUsuario = new BigInteger(130, random).toString(32);
-	}	
+	}*/
 	/**
 	 * Função para checar username
 	 * 
 	 * @param username
 	 * @return
 	 */
+	/* 
 	public boolean checkUsername(String username) {
 		if(username == this.username) {
 			return true;
 		}
 		return false;
-	}
+	} */
 	/**
 	 * Função para checar senha
 	 * @param senha
 	 * @return
 	 */
-	public boolean checkSenha(String senha) {
+	/* public boolean checkSenha(String senha) {
 		if(senha == this.senha) {
 			return true;
 		}
 		return false;
-	}
+	} */
 	/**
 	 * Função para pegar primeiro nome
 	 * 
@@ -207,7 +209,7 @@ public class Usuario {
 	 * @throws NoSuchProviderException
 	 * @throws UnsupportedEncodingException
 	 */
-	protected static String criptografarSenha(String senha) throws NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
+	/* protected static String criptografarSenha(String senha) throws NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
 		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
 		byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
 		 
@@ -217,5 +219,5 @@ public class Usuario {
 		}
 		
 		return hexString.toString();
-	}
+	} */
 }
