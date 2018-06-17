@@ -157,7 +157,7 @@ public class JDBCFlashcardDAO implements FlashcardDAO{
 
 		PreparedStatement stmt = conexao.prepareStatement("select * from flashcard where (codigo_usuario = '?') AND (codigo_flashcard = '?')");
 
-		stmt.setString(1, codigoUsuario());
+		stmt.setString(1, codigoUsuario);
 		stmt.setString(2, codigoFlashcard);
 		
 		ResultSet rs = stmt.executeQuery();
