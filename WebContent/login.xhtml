@@ -39,17 +39,15 @@
                                 <div class="brandImg">
                                     <img src="images/logomin.png" alt="LogoShareCards" class="brandImgForm"/>
                                 </div>
-                                <input class="form-control" type="text" placeholder="e-mail" id="email"/>
-                                <br/>
-                                <input class="form-control" type="password" placeholder="senha" id="senha"/>
-                                <br/>
-                                <p id="valid" class="message1"></p>
-
-                                <input type="button" value="Entrar" class="inmain" onclick="blankPassword(document.getElementById('email').value, document.getElementById('senha').value)"
-                                id="botaoLogin"       
-                                />
-
-                                <br/>
+		                        <h:form>
+		                        	<h:outputLabel value="Email"/>
+			                        <h:inputText value="#{usuarioBean.email}" class="form-control" type="text" placeholder="e-mail" id="email"/>
+			                        <h:outputLabel value="Senha"/>
+			                        <h:inputSecret value="#{usuarioBean.senha}" class="form-control" type="password" placeholder="senha" id="senha" />
+			                        <br/>
+			                        <p id="valid" class="message1"></p>
+			                        <h:commandButton action="#{usuarioBean.validaLogin}" type="button" value="Entrar" class="inmain" id="botaoLogin"/>
+		                    	</h:form>
                                 <div>
                                     <a class="linkable" href="esqueciSenha1.html">Esqueceu a senha?</a>
                                 </div>

@@ -28,6 +28,7 @@ public class UsuarioBean {
 		
 		UsuarioDAO edUs = new JDBCUsuarioDAO();
 		this.codigoUsuario = edUs.insereUsuario(us);
+		
 		return "dash";
 	} 
 	
@@ -43,10 +44,13 @@ public class UsuarioBean {
 		return rs;
 	}
 	
-	public boolean validaLogin() throws SQLException{
+	public String validaLogin() throws SQLException{
 		UsuarioDAO edUs = new JDBCUsuarioDAO();
 		boolean confirm = edUs.validaLogin(email, senha);
-		return confirm;
+		if(confirm) {
+			return "dash";
+		}
+		return "login";
 	}
 
 	public Usuario retornaUsuario() throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{

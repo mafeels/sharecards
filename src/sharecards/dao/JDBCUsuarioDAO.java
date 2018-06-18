@@ -114,7 +114,7 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 	public boolean validaLogin(String email, String senha) throws SQLException {
 		Connection conexao = new FactoryConnection().getConnection();
 
-		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where (senha = '?') AND (e_mail = '?')");
+		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where (senha = ?) AND (e_mail = ?)");
 		stmt.setString(1, senha);
 		stmt.setString(2, email);
 		ResultSet rs = stmt.executeQuery();
