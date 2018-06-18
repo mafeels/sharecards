@@ -17,7 +17,7 @@ public class UsuarioBean {
 
 	private String codigoUsuario, username, dataNascimento, senha, email, primeiroNome, ultimoNome;
 	
-	public void insereUsuario() throws ClassNotFoundException, SQLException{
+	public String insereUsuario() throws ClassNotFoundException, SQLException{
 		Usuario us = new Usuario();
 		us.setUsername(username);
 		us.setEmail(email);
@@ -28,6 +28,7 @@ public class UsuarioBean {
 		
 		UsuarioDAO edUs = new JDBCUsuarioDAO();
 		this.codigoUsuario = edUs.insereUsuario(us);
+		return "index";
 	} 
 	
 	public int removeUsuario() throws ClassNotFoundException, SQLException{

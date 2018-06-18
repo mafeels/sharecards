@@ -18,9 +18,11 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 	 */
 
 	public String insereUsuario(Usuario u) throws ClassNotFoundException, SQLException {
-
+		
+		System.out.println(" Abrindo conexão ... ");
 		Connection conexao = new FactoryConnection().getConnection();
 
+		
 		// cria um preparedStatement
 		String sql = "insert into usuario(primeiro_nome, ultimo_nome, username, data_nascimento, senha, e_mail)	"
 				+ "values (?, ?, ?, ?, ?, ?);";
@@ -38,7 +40,9 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 		stmt.setString(6, u.getEmail());
 
 		// executa
+		System.out.println(" Executando comando ... ");
 		stmt.execute();
+		System.out.println("Fechando conexão ...");
 		stmt.close();
 		
 		PreparedStatement pstmt = conexao.prepareStatement("select codigo_usuario FROM usuario WHERE (senha = '?') AND (e_mail = '?')");
