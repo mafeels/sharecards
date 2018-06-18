@@ -15,14 +15,25 @@
 </head>
 <body>
 <f:view>
-	<h:form>
-		<h:outputText value="codigo do usuario"/>
-		<h:inputText value="#{flashcardBean.codigoUsuario}" />
-		<h:outputText value="codigo do flashcard"/>
-		<h:inputText value="#{flashcardBean.codigoFlashcard}" />
-		<br/>
-		<h:commandButton value="pesquisar" action="#{flashcardBean.pegarDados}"/>
-		</h:form>
+<h:form>
+	<ul>
+        <ui:repeat value="#{flashcardBean.dados}" var="fc">
+            <li>
+            <h:outputText value="Nome do Flashcard: "/>
+                <h:outputText value="#{fc.nomeFlashcard}"/> <br/>
+            <h:outputText value="Frente do Flashcard: "/>
+                <h:outputText value="#{fc.frenteFlashcard}"/> <br/>
+            <h:outputText value="Verso do Flashcard: "/>
+                <h:outputText value="#{fc.trasFlashcard}"/> <br/>
+            <h:outputText value="Autor: "/>
+                <h:outputText value="#{fc.autorFlashcard}"/> <br/>
+            <h:outputText value="Categoria: "/>
+                <h:outputText value="#{fc.categoriaFlashcard}"/> <br/>
+            </li>
+        </ui:repeat> 
+    
+    </ul>
+        </h:form>
 </f:view>
 </body>
 </html>

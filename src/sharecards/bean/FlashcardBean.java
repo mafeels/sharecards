@@ -13,7 +13,6 @@ import javax.faces.bean.ManagedBean;
 import sharecards.dao.FlashcardDAO;
 import sharecards.dao.JDBCFlashcardDAO;
 import sharecards.model.Flashcard;
-import sharecards.model.Usuario;
 
 @ManagedBean(name = "flashcardBean")
 public class FlashcardBean {
@@ -71,15 +70,87 @@ public class FlashcardBean {
 		edFl.editarFlashcard(frenteFlashcard, trasFlashcard, codigoFlashcard);
 	}
 	
-	public Flashcard retornaFlashcard(Usuario u, String codigoFlashcard) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException, ParseException{
+	public Flashcard retornaFlashcard() throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException, ParseException{
 		FlashcardDAO edFl = new JDBCFlashcardDAO();
 		Flashcard fl = edFl.retornaFlashcard(codigoUsuario,codigoFlashcard);
 		return fl;
 	}
 	
-	public ArrayList<Flashcard> getDados(){
+	public String pegarDados(){
 		FlashcardDAO edFl = new JDBCFlashcardDAO();
-		dados = edFl.obterFlashcard(codigoUsuario,codigoFlashcard);
+		this.dados = edFl.obterFlashcard(codigoUsuario,codigoFlashcard);
+		return "respostaFlashcard";
+	}
+
+	public String getNomeFlashcard() {
+		return nomeFlashcard;
+	}
+
+	public void setNomeFlashcard(String nomeFlashcard) {
+		this.nomeFlashcard = nomeFlashcard;
+	}
+
+	public String getCategoriaFlashcard() {
+		return categoriaFlashcard;
+	}
+
+	public void setCategoriaFlashcard(String categoriaFlashcard) {
+		this.categoriaFlashcard = categoriaFlashcard;
+	}
+
+	public String getFrenteFlashcard() {
+		return frenteFlashcard;
+	}
+
+	public void setFrenteFlashcard(String frenteFlashcard) {
+		this.frenteFlashcard = frenteFlashcard;
+	}
+
+	public String getTrasFlashcard() {
+		return trasFlashcard;
+	}
+
+	public void setTrasFlashcard(String trasFlashcard) {
+		this.trasFlashcard = trasFlashcard;
+	}
+
+	public String getImageFlashcard() {
+		return imageFlashcard;
+	}
+
+	public void setImageFlashcard(String imageFlashcard) {
+		this.imageFlashcard = imageFlashcard;
+	}
+
+	public String getCodigoFlashcard() {
+		return codigoFlashcard;
+	}
+
+	public void setCodigoFlashcard(String codigoFlashcard) {
+		this.codigoFlashcard = codigoFlashcard;
+	}
+
+	public String getCodigoUsuario() {
+		return codigoUsuario;
+	}
+
+	public void setCodigoUsuario(String codigoUsuario) {
+		this.codigoUsuario = codigoUsuario;
+	}
+
+	public String getAutorFlashcard() {
+		return autorFlashcard;
+	}
+
+	public void setAutorFlashcard(String autorFlashcard) {
+		this.autorFlashcard = autorFlashcard;
+	}
+
+	public void setDados(ArrayList<Flashcard> dados) {
+		this.dados = dados;
+	}
+
+	public ArrayList<Flashcard> getDados() {
 		return dados;
 	}
 	

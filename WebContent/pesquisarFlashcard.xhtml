@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" version="2.0">
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"  version="2.0">
     <jsp:directive.page language="java"
         contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" />
     <jsp:text>
@@ -15,7 +15,12 @@
 </head>
 <body>
 <f:view>
-
+	<ul>
+        <ui:repeat value="#{flashcardBean.dados}" var="fc">
+            <li>
+                <h:outputText value="#{fc.nomeFlashcard}"/>
+            </li>
+        </ui:repeat> </ul>
 </f:view>
 </body>
 </html>
