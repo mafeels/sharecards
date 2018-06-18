@@ -12,7 +12,7 @@ import sharecards.dao.JDBCUsuarioDAO;
 import sharecards.dao.UsuarioDAO;
 import sharecards.model.Usuario;
 
-@ManagedBean
+@ManagedBean(name = "UsuarioBean")
 public class UsuarioBean {
 
 	private String codigoUsuario, username, dataNascimento, senha, email, primeiroNome, ultimoNome;
