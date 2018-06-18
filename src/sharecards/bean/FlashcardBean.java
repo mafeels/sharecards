@@ -14,7 +14,7 @@ import sharecards.dao.JDBCFlashcardDAO;
 import sharecards.model.Flashcard;
 import sharecards.model.Usuario;
 
-@ManagedBean
+@ManagedBean(name = "flashcardBean")
 public class FlashcardBean {
 	
 	private String nomeFlashcard, categoriaFlashcard, frenteFlashcard, trasFlashcard, imageFlashcard, codigoFlashcard,
