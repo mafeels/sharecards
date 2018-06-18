@@ -25,7 +25,7 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 		
 		// cria um preparedStatement
 		String sql = "insert into usuario(primeiro_nome, ultimo_nome, username, data_nascimento, senha, e_mail)	"
-				+ "values (?, ?, ?, ?, ?, ?);";
+				+ "values (?, ?, ?, ?, ?, ?)";
 
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 
