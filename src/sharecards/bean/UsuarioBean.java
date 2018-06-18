@@ -28,7 +28,7 @@ public class UsuarioBean {
 		
 		UsuarioDAO edUs = new JDBCUsuarioDAO();
 		this.codigoUsuario = edUs.insereUsuario(us);
-		return "index";
+		return "dash";
 	} 
 	
 	public int removeUsuario() throws ClassNotFoundException, SQLException{
