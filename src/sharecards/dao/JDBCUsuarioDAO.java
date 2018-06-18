@@ -43,8 +43,13 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 		stmt.executeUpdate();
 		System.out.println("Fechando conexão ...");
 		stmt.close();
+<<<<<<< HEAD
 		String cod = null;
 		PreparedStatement pstmt = conexao.prepareStatement("select codigo_usuario FROM usuario WHERE (senha = ?) AND (e_mail = ?)");
+=======
+		
+		PreparedStatement pstmt = conexao.prepareStatement("select codigo_usuario FROM usuario WHERE senha = ? AND e_mail = ?");
+>>>>>>> 2b5cb9a0849c781d6dc01633a16b5a0885b67588
 		pstmt.setString(1, u.getSenha());
 		pstmt.setString(2, u.getEmail());
 		ResultSet rs = pstmt.executeQuery();
@@ -112,7 +117,7 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 	public boolean validaLogin(String email, String senha) throws SQLException {
 		Connection conexao = new FactoryConnection().getConnection();
 
-		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where (senha = '?') AND (e_mail = '?')");
+		PreparedStatement stmt = conexao.prepareStatement("select count(senha) from usuario where (senha = ?) AND (e_mail = ?)");
 		stmt.setString(1, senha);
 		stmt.setString(2, email);
 		ResultSet rs = stmt.executeQuery();
