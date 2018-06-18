@@ -22,9 +22,10 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 		System.out.println(" Abrindo conex„o ... ");
 		Connection conexao = new FactoryConnection().getConnection();
 
+		
 		// cria um preparedStatement
 		String sql = "insert into usuario(primeiro_nome, ultimo_nome, username, data_nascimento, senha, e_mail)	"
-				+ "values (?, ?, ?, ?, ?, ?)";
+				+ "values (?, ?, ?, ?, ?, ?);";
 
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 
@@ -40,22 +41,19 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 
 		// executa
 		System.out.println(" Executando comando ... ");
-		stmt.executeUpdate();
+		stmt.execute();
 		System.out.println("Fechando conex„o ...");
 		stmt.close();
-		String cod = null;
-		PreparedStatement pstmt = conexao.prepareStatement("select codigo_usuario FROM usuario WHERE (senha = ?) AND (e_mail = ?)");
+		
+		PreparedStatement pstmt = conexao.prepareStatement("select codigo_usuario FROM usuario WHERE (senha = '?') AND (e_mail = '?')");
 		pstmt.setString(1, u.getSenha());
 		pstmt.setString(2, u.getEmail());
-		ResultSet rs = pstmt.executeQuery();
-		if(rs != null && rs.next()){
-            cod = rs.getString("codigo_usuario");
-        } 
-		pstmt.close();
-		
+		ResultSet rs = stmt.executeQuery();
+		String cod = rs.getNString("codigo_usuario");
 		conexao.close();
 		
 		return cod; 
+		
 	}
 	/**
 	 * Fun√ß√£o para deletar usuario do banco de dados
