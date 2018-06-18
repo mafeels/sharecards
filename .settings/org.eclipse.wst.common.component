@@ -2,7 +2,6 @@
     <wb-module deploy-name="sharecards">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/sharecards"/>
         <property name="context-root" value="sharecards"/>
         <property name="java-output-path" value="/sharecards/bin"/>
     </wb-module>
