@@ -9,6 +9,7 @@ import java.security.NoSuchProviderException;
 
 
 
+
 public class Usuario {
 	protected String codigoUsuario, username, dataNascimento, senha, email, primeiroNome, ultimoNome;
 	/**
