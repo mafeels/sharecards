@@ -6,6 +6,7 @@ import java.security.NoSuchProviderException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 import sharecards.model.Flashcard;
 import sharecards.model.Usuario;
@@ -25,5 +26,7 @@ public interface FlashcardDAO {
 	public Flashcard retornaFlashcard(String codigoUsuario, String codigoFlashcard) throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException, ParseException;
 	
 	public void mostrarBiblioteca(Usuario usuario) throws SQLException;
+	
+	public ArrayList <Flashcard> obterFlashcard(String codigoUsuario, String codigoFlashcard);
 	
 }

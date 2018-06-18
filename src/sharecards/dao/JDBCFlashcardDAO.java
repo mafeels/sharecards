@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import sharecards.model.*;
@@ -110,7 +111,7 @@ public class JDBCFlashcardDAO implements FlashcardDAO{
 	       
 	       Statement stmt = conexao.createStatement();
 	                       
-	       ResultSet rs = stmt.executeQuery("select * from flashcard");
+	       ResultSet rs = stmt.executeQuery(sql);
 	        
 	       return rs;
 	}
@@ -220,6 +221,41 @@ public class JDBCFlashcardDAO implements FlashcardDAO{
 			System.out.println(rs.getNString("verso_flashcard"));
 		}
 		
+	}
+	
+	public ArrayList <Flashcard> obterFlashcard(String codigoUsuario, String codigoFlashcard){
+		try {
+			Connection conexao = new FactoryConnection().getConnection();
+			
+			String sql = "select * from flashcard where (codigo_usuario = ?) AND (codigo_flashcard = ?)";
+			
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+			stmt.setString(1, codigoUsuario);
+			stmt.setString(2, codigoFlashcard);
+		                       
+            // faz a conexao e executa
+		    
+            ResultSet rs= stmt.executeQuery();
+            ArrayList <Flashcard> lista = new ArrayList<Flashcard>();
+            while(rs.next()) {
+                Flashcard fc = new Flashcard();
+                fc.setCodigoUsuario(rs.getString("codigo_usuario"));
+        		fc.setNomeFlashcard(rs.getString("nome_flashcard"));
+        		fc.setCategoriaFlashcard(rs.getString("categoria_flashcard"));
+        		fc.setImageFlashcard(rs.getString("imagem_flashcard"));
+        		fc.setFrenteFlashcard(rs.getString("frente_flashcard"));
+        		fc.setTrasFlashcard(rs.getString("verso_flashcard"));
+        		fc.setAutorFlashcard(rs.getString("autor_flashcard"));
+        		lista.add(fc);
+            }
+           stmt.close();
+ 	       conexao.close();
+           return lista;
+        } catch (SQLException e) {
+           e.printStackTrace();
+           System.out.println(e.getMessage());
+           return null;
+        }
 	}
 	
 }

@@ -6,6 +6,7 @@ import java.security.NoSuchProviderException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
 
@@ -19,6 +20,8 @@ public class FlashcardBean {
 	
 	private String nomeFlashcard, categoriaFlashcard, frenteFlashcard, trasFlashcard, imageFlashcard, codigoFlashcard,
 	 codigoUsuario, autorFlashcard;
+	//FlashcardDAO fc= new JDBCFlashcardDAO();
+	private ArrayList<Flashcard> dados; //= fc.obterFlashcard();
 	
 	
 	public void insereFlashcard() throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, NoSuchProviderException, UnsupportedEncodingException{
@@ -72,6 +75,12 @@ public class FlashcardBean {
 		FlashcardDAO edFl = new JDBCFlashcardDAO();
 		Flashcard fl = edFl.retornaFlashcard(codigoUsuario,codigoFlashcard);
 		return fl;
+	}
+	
+	public ArrayList<Flashcard> getDados(){
+		FlashcardDAO edFl = new JDBCFlashcardDAO();
+		dados = edFl.obterFlashcard(codigoUsuario,codigoFlashcard);
+		return dados;
 	}
 	
 	/*public void mostrarBiblioteca(Usuario usuario) throws SQLException{
