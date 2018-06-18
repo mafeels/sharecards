@@ -118,8 +118,11 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
 		stmt.setString(1, senha);
 		stmt.setString(2, email);
 		ResultSet rs = stmt.executeQuery();
-		String countSenha = rs.getString(0);
-		if (countSenha == senha) {
+		int countSenha = 0;
+		if(rs != null && rs.next()){
+          countSenha = rs.getInt("count(senha)");
+        } 
+		if (countSenha == 1) {
 			return true;
 		} else {
 			return false;
