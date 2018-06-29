@@ -3,24 +3,24 @@ show databases;
 use flashnotes;
 show tables;
 create table usuario (
-	codigo_usuario bigint not null auto_increment,
+    codigo_usuario bigint not null auto_increment,
     username varchar(20) not null,
-    data_nascimento date not null,
+    data_nascimento varchar(10) null,
     senha varchar(12) not null,
     e_mail varchar(50) not null,
-	primeiro_nome varchar(20) not null,
-    ultimo_nome varchar(20) not null,
+    primeiro_nome varchar(20) null,
+    ultimo_nome varchar(20) null,
     primary key(codigo_usuario)) engine=innodb;
 
 create table flashcard (
-	codigo_flashcard bigint not null auto_increment,
+    codigo_flashcard bigint not null auto_increment,
     codigo_usuario bigint not null,
     nome_flashcard varchar(30) not null,
     frente_flashcard mediumtext not null,
     verso_flashcard mediumtext not null,
     autor_flashcard varchar(20) not null,
     categoria_flashcard varchar(25) not null,
-    data_criacao datetime not null,
+    data_criacao varchar(10) not null,
     imagem_flashcard varchar(100) null,
     primary key (codigo_flashcard),
     constraint fk_codigo_usuario foreign key(codigo_usuario)
@@ -31,7 +31,7 @@ create table flashcard (
     
 
 create table edita (
-	data_edicao datetime,
+    data_edicao datetime,
     codigo_flashcard bigint not null,
     codigo_usuario bigint not null,
     constraint fk_codigo_flashcard_edita foreign key(codigo_flashcard)
