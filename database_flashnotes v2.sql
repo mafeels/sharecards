@@ -10,6 +10,7 @@ create table usuario (
     e_mail varchar(50) not null,
     primeiro_nome varchar(20) null,
     ultimo_nome varchar(20) null,
+    imagem_perfil LONGBLOB null,
     primary key(codigo_usuario)) engine=innodb;
 
 create table flashcard (
@@ -21,7 +22,7 @@ create table flashcard (
     autor_flashcard varchar(20) not null,
     categoria_flashcard varchar(25) not null,
     data_criacao varchar(10) not null,
-    imagem_flashcard varchar(100) null,
+    imagem_flashcard LONGBLOB null,
     primary key (codigo_flashcard),
     constraint fk_codigo_usuario foreign key(codigo_usuario)
     references usuario (codigo_usuario)
